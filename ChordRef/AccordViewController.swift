@@ -58,17 +58,35 @@ class AccordViewController: UIViewController {
         let name = nom.text ?? ""
         let image = imageAccord.image
         
-        bonAccord = Accord(name: name, photo: image!)
+        bonAccord = Accord(name: name, photo: image!, favoris: false)
         
         /*guard let tableAccord = segue.destination as? AccordTableViewController else {
             fatalError("erreur")
         }*/
     
         if favorite! {
-            favorites.append(bonAccord!)
+            let defaults = UserDefaults.standard
+            var favorites = defaults.array(forKey: defaultsKeys.favorites) as? [String]
+            
+            if let abc = favorites as? [String]{
+                favorites?.append(bonAccord!.name)
+            }
+            else {
+                favorites = [bonAccord!.name]
+            }
+            //let favoritesData = NSKeyedArchiver.archivedData(withRootObject: favorites) as? NSData
+            defaults.set(favorites, forKey: defaultsKeys.favorites)
         }
         else {
-            favorites = favorites.filter { accord in return accord.name != bonAccord?.name }
+            let defaults = UserDefaults.standard
+            var favorites = defaults.array(forKey: defaultsKeys.favorites) as? [String]
+            
+            let index = favorites?.index(of: bonAccord!.name)
+            favorites?.remove(at: index!)
+            //favorites = favorites?.filter { $0 != bonAccord?.name }
+            
+            //let favoritesData = NSKeyedArchiver.archivedData(withRootObject: favorites) as? NSData
+            defaults.set(favorites, forKey: defaultsKeys.favorites)
         }
     }
 }

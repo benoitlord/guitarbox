@@ -15,14 +15,16 @@ class Accord {
     
     var name: String
     var photo: UIImage
+    var favoris: Bool
     
-    init?(name: String, photo: UIImage) {
+    init?(name: String, photo: UIImage, favoris: Bool) {
         if name.isEmpty {
             return nil
         }
         
     self.name = name
     self.photo = photo
+    self.favoris = favoris
         
     }
 }

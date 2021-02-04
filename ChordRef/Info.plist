@@ -48,5 +48,7 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>home</key>
+	<string></string>
 </dict>
 </plist>

@@ -14,7 +14,8 @@ class AccordTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var imageAccord: UIImageView!
-
+    @IBOutlet weak var imageFavoris: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

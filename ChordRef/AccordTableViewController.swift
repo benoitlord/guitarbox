@@ -17,6 +17,10 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     var filteredAccords = [Accord]()
     //var favorites = [Accord?]()
     
+    var favorites = defaults.object(forKey: defaultsKeys.favorites) as? [String]
+    var favorites2 = [Accord]()
+    var add = true
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -65,9 +69,6 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         
         updateSearchResults(for: searchController)
         
-        //Load data
-        loadAccords()
-        
         self.navigationItem.hidesBackButton = true
     }
     
@@ -105,9 +106,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return filteredAccords.count
-       
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -118,13 +117,19 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             fatalError("The dequeued cell is not an instance of AccordTableViewCell.")
         }
         
-         // Fetches the appropriate chord for the data source layout.
+        // Fetches the appropriate chord for the data source layout.
         let accord = filteredAccords[indexPath.row]
-        
         
         cell.nom.text = accord.name
         cell.imageAccord.image = accord.photo
-
+        
+        if accord.favoris == true {
+            cell.imageFavoris.image = UIImage(named: "Favoris")
+        }
+        else{
+            cell.imageFavoris.image = nil
+        }
+        
         return cell
     }
     
@@ -189,9 +194,11 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             AccordDetailsViewController.bonAccord = selectedAccord
             
             AccordDetailsViewController.favorite = false
-            for accord in favorites {
-                if accord.name == selectedAccord.name {
-                    AccordDetailsViewController.favorite = true
+            if let abc = favorites as? [String] {
+                for accord in favorites! {
+                    if accord == selectedAccord.name {
+                        AccordDetailsViewController.favorite = true
+                    }
                 }
             }
         }
@@ -253,199 +260,214 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         let b_minImage = UIImage(named: "B_minImage")
         let b_min7Image = UIImage(named: "B_min7Image")
         
-        guard let accordC = Accord(name: "C", photo: cImage!) else {
+        guard let accordC = Accord(name: "C", photo: cImage!, favoris: false) else {
             fatalError("Unable to instantiate accordC")
         }
         
-        guard let accordC7 = Accord(name: "C7", photo: c7Image!) else {
+        guard let accordC7 = Accord(name: "C7", photo: c7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordC7")
         }
         
-        guard let accordC_D = Accord(name: "C#/Db", photo: c_dImage!) else {
+        guard let accordC_D = Accord(name: "C#/Db", photo: c_dImage!, favoris: false) else {
             fatalError("Unable to instantiate accordC_D")
         }
         
-        guard let accordC_D7 = Accord(name: "C#7/Db7", photo: c_d7Image!) else {
+        guard let accordC_D7 = Accord(name: "C#7/Db7", photo: c_d7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordC_D7")
         }
         
-        guard let accordD = Accord(name: "D", photo: dImage!) else {
+        guard let accordD = Accord(name: "D", photo: dImage!, favoris: false) else {
             fatalError("Unable to instantiate accordD")
         }
         
-        guard let accordD7 = Accord(name: "D7", photo: d7Image!) else {
+        guard let accordD7 = Accord(name: "D7", photo: d7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordD7")
         }
         
-        guard let accordD_E = Accord(name: "D#/Eb", photo: d_eImage!) else {
+        guard let accordD_E = Accord(name: "D#/Eb", photo: d_eImage!, favoris: false) else {
             fatalError("Unable to instantiate accordD_E")
         }
         
-        guard let accordD_E7 = Accord(name: "D#7/Eb7", photo: d_e7Image!) else {
+        guard let accordD_E7 = Accord(name: "D#7/Eb7", photo: d_e7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordD_E7")
         }
         
-        guard let accordE = Accord(name: "E", photo: eImage!) else {
+        guard let accordE = Accord(name: "E", photo: eImage!, favoris: false) else {
             fatalError("Unable to instantiate accordE")
         }
         
-        guard let accordE7 = Accord(name: "E7", photo: e7Image!) else {
+        guard let accordE7 = Accord(name: "E7", photo: e7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordE7")
         }
         
-        guard let accordF = Accord(name: "F", photo: fImage!) else {
+        guard let accordF = Accord(name: "F", photo: fImage!, favoris: false) else {
             fatalError("Unable to instantiate accordF")
         }
         
-        guard let accordF7 = Accord(name: "F7", photo: f7Image!) else {
+        guard let accordF7 = Accord(name: "F7", photo: f7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordF7")
         }
         
-        guard let accordF_G = Accord(name: "F#/Gb", photo: f_gImage!) else {
+        guard let accordF_G = Accord(name: "F#/Gb", photo: f_gImage!, favoris: false) else {
             fatalError("Unable to instantiate accordF_G")
         }
         
-        guard let accordF_G7 = Accord(name: "F#7/Gb7", photo: f_g7Image!) else {
+        guard let accordF_G7 = Accord(name: "F#7/Gb7", photo: f_g7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordF_G7")
         }
         
-        guard let accordG = Accord(name: "G", photo: gImage!) else {
+        guard let accordG = Accord(name: "G", photo: gImage!, favoris: false) else {
             fatalError("Unable to instantiate accordG")
         }
         
-        guard let accordG7 = Accord(name: "G7", photo: g7Image!) else {
+        guard let accordG7 = Accord(name: "G7", photo: g7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordG7")
         }
         
-        guard let accordG_A = Accord(name: "G#/Ab", photo: g_aImage!) else {
+        guard let accordG_A = Accord(name: "G#/Ab", photo: g_aImage!, favoris: false) else {
             fatalError("Unable to instantiate accordG_A")
         }
         
-        guard let accordG_A7 = Accord(name: "G#7/Ab7", photo: g_a7Image!) else {
+        guard let accordG_A7 = Accord(name: "G#7/Ab7", photo: g_a7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordG_A7")
         }
         
-        guard let accordA = Accord(name: "A", photo: aImage!) else {
+        guard let accordA = Accord(name: "A", photo: aImage!, favoris: false) else {
             fatalError("Unable to instantiate accordA")
         }
         
-        guard let accordA7 = Accord(name: "A7", photo: a7Image!) else {
+        guard let accordA7 = Accord(name: "A7", photo: a7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordA7")
         }
         
-        guard let accordA_B = Accord(name: "A#/Bb", photo: a_bImage!) else {
+        guard let accordA_B = Accord(name: "A#/Bb", photo: a_bImage!, favoris: false) else {
             fatalError("Unable to instantiate accordA_B")
         }
         
-        guard let accordA_B7 = Accord(name: "A#7/Bb7", photo: a_b7Image!) else {
+        guard let accordA_B7 = Accord(name: "A#7/Bb7", photo: a_b7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordA_B7")
         }
         
-        guard let accordB = Accord(name: "B", photo: bImage!) else {
+        guard let accordB = Accord(name: "B", photo: bImage!, favoris: false) else {
             fatalError("Unable to instantiate accordB")
         }
         
-        guard let accordB7 = Accord(name: "B7", photo: b7Image!) else {
+        guard let accordB7 = Accord(name: "B7", photo: b7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordB7")
         }
         
-        guard let accordC_min = Accord(name: "C min", photo: c_minImage!) else {
+        guard let accordC_min = Accord(name: "C min", photo: c_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordC_min")
         }
         
-        guard let accordC_min7 = Accord(name: "C min7", photo: c_min7Image!) else {
+        guard let accordC_min7 = Accord(name: "C min7", photo: c_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordC_min7")
         }
         
-        guard let accordC_D_min = Accord(name: "C#/Db min", photo: c_d_minImage!) else {
+        guard let accordC_D_min = Accord(name: "C#/Db min", photo: c_d_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordC_D_min")
         }
         
-        guard let accordC_D_min7 = Accord(name: "C#/Db min7", photo: c_d_min7Image!) else {
+        guard let accordC_D_min7 = Accord(name: "C#/Db min7", photo: c_d_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordC_D_min7")
         }
         
-        guard let accordD_min = Accord(name: "D min", photo: d_minImage!) else {
+        guard let accordD_min = Accord(name: "D min", photo: d_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordD_min")
         }
         
-        guard let accordD_min7 = Accord(name: "D min7", photo: d_min7Image!) else {
+        guard let accordD_min7 = Accord(name: "D min7", photo: d_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordD_min7")
         }
         
-        guard let accordD_E_min = Accord(name: "D#/Eb min", photo: d_e_minImage!) else {
+        guard let accordD_E_min = Accord(name: "D#/Eb min", photo: d_e_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordD_E_min")
         }
         
-        guard let accordD_E_min7 = Accord(name: "D#/Eb min7", photo: d_e_min7Image!) else {
+        guard let accordD_E_min7 = Accord(name: "D#/Eb min7", photo: d_e_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordD_E_min7")
         }
         
-        guard let accordE_min = Accord(name: "E min", photo: e_minImage!) else {
+        guard let accordE_min = Accord(name: "E min", photo: e_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordE_min")
         }
         
-        guard let accordE_min7 = Accord(name: "E min7", photo: e_min7Image!) else {
+        guard let accordE_min7 = Accord(name: "E min7", photo: e_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordE_min7")
         }
         
-        guard let accordF_min = Accord(name: "F min", photo: f_minImage!) else {
+        guard let accordF_min = Accord(name: "F min", photo: f_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordF_min")
         }
         
-        guard let accordF_min7 = Accord(name: "F min7", photo: f_min7Image!) else {
+        guard let accordF_min7 = Accord(name: "F min7", photo: f_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordF_min7")
         }
         
-        guard let accordF_G_min = Accord(name: "F#/Gb min", photo: f_g_minImage!) else {
+        guard let accordF_G_min = Accord(name: "F#/Gb min", photo: f_g_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordF_G_min")
         }
         
-        guard let accordF_G_min7 = Accord(name: "F#/Gb min7", photo: f_g_min7Image!) else {
+        guard let accordF_G_min7 = Accord(name: "F#/Gb min7", photo: f_g_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordF_G_min7")
         }
         
-        guard let accordG_min = Accord(name: "G min", photo: g_minImage!) else {
+        guard let accordG_min = Accord(name: "G min", photo: g_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordG_min")
         }
         
-        guard let accordG_min7 = Accord(name: "G min7", photo: g_min7Image!) else {
+        guard let accordG_min7 = Accord(name: "G min7", photo: g_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordG_min7")
         }
         
-        guard let accordG_A_min = Accord(name: "G#/Ab min", photo: g_a_minImage!) else {
+        guard let accordG_A_min = Accord(name: "G#/Ab min", photo: g_a_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordG_A_min")
         }
         
-        guard let accordG_A_min7 = Accord(name: "G#/Ab min7", photo: g_a_min7Image!) else {
+        guard let accordG_A_min7 = Accord(name: "G#/Ab min7", photo: g_a_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordG_A_min7")
         }
         
-        guard let accordA_min = Accord(name: "A min", photo: a_minImage!) else {
+        guard let accordA_min = Accord(name: "A min", photo: a_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordA_min")
         }
         
-        guard let accordA_min7 = Accord(name: "A min7", photo: a_min7Image!) else {
+        guard let accordA_min7 = Accord(name: "A min7", photo: a_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordA_min7")
         }
         
-        guard let accordA_B_min = Accord(name: "A#/Bb min", photo: a_b_minImage!) else {
+        guard let accordA_B_min = Accord(name: "A#/Bb min", photo: a_b_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordA_B_min")
         }
         
-        guard let accordA_B_min7 = Accord(name: "A#/Bb min7", photo: a_b_min7Image!) else {
+        guard let accordA_B_min7 = Accord(name: "A#/Bb min7", photo: a_b_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordA_B_min7")
         }
         
-        guard let accordB_min = Accord(name: "B min", photo: b_minImage!) else {
+        guard let accordB_min = Accord(name: "B min", photo: b_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordB_min")
         }
         
-        guard let accordB_min7 = Accord(name: "B min7", photo: b_min7Image!) else {
+        guard let accordB_min7 = Accord(name: "B min7", photo: b_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordB_min7")
         }
         
         unfilteredAccords = [accordC, accordC7, accordC_D, accordC_D7, accordD, accordD7, accordD_E, accordD_E7, accordE, accordE7, accordF, accordF7, accordF_G, accordF_G7, accordG, accordG7, accordG_A, accordG_A7, accordA, accordA7, accordA_B, accordA_B7, accordB, accordB7, accordC_min, accordC_min7, accordC_D_min, accordC_D_min7, accordD_min, accordD_min7, accordD_E_min, accordD_E_min7, accordE_min, accordE_min7, accordF_min, accordF_min7, accordF_G_min, accordF_G_min7, accordG_min, accordG_min7, accordG_A_min, accordG_A_min7, accordA_min, accordA_min7, accordA_B_min, accordA_B_min7, accordB_min, accordB_min7]
+        
+        favorites = defaults.object(forKey: defaultsKeys.favorites) as? [String]
+        if add {
+            if favorites != nil {
+                for accord in unfilteredAccords {
+                    for accordFavorite in favorites! {
+                        if accord.name == accordFavorite {
+                            accord.favoris = true
+                            favorites2.append(accord)
+                        }
+                    }
+                }
+            }
+            add = false
+        }
     }
     
     //MARK: Search Bar
@@ -458,7 +480,13 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         else{
             loadAccords()
-            filteredAccords = favorites + unfilteredAccords
+            if let abc = favorites2 as? [Accord] {
+                loadAccords()
+                filteredAccords = favorites2 + unfilteredAccords
+            }
+            else{
+                filteredAccords = unfilteredAccords
+            }
         }
         tableView.reloadData()
     }
