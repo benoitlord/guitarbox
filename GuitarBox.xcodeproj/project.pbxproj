@@ -37,10 +37,10 @@
 		D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */; };
 		D78E54C51F85522C004E47F1 /* Accord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C41F85522C004E47F1 /* Accord.swift */; };
 		D78F24C12004011700CCF5D2 /* TunerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78F24C02004011700CCF5D2 /* TunerViewController.swift */; };
+		D79BD87A217388F400C0CA67 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D9B51A21161BDC00AFF6DB /* AudioKit.framework */; };
 		D7A05D20201BCCE70065DFFF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A05D22201BCCE70065DFFF /* InfoPlist.strings */; };
 		D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1A4071FBC8B250091E5E2 /* favorites.swift */; };
 		D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */; };
-		D7D9B52221161E6200AFF6DB /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D9B51A21161BDC00AFF6DB /* AudioKit.framework */; };
 		D7EEC352200915690016ACF3 /* metronome_son_bas.wav in Resources */ = {isa = PBXBuildFile; fileRef = D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */; };
 		D7EEC353200915690016ACF3 /* metronome_son_haut.wav in Resources */ = {isa = PBXBuildFile; fileRef = D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */; };
 		D7F503C81FEC0670001DCF8C /* sons in Resources */ = {isa = PBXBuildFile; fileRef = D7F503C61FEC05DA001DCF8C /* sons */; };
@@ -120,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7D9B52221161E6200AFF6DB /* AudioKit.framework in Frameworks */,
+				D79BD87A217388F400C0CA67 /* AudioKit.framework in Frameworks */,
 				D71903F81FD1E77A001A3AC7 /* SystemConfiguration.framework in Frameworks */,
 				D71903F61FD1E769001A3AC7 /* StoreKit.framework in Frameworks */,
 				D71903F41FD1E758001A3AC7 /* MessageUI.framework in Frameworks */,
