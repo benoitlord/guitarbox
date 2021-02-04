@@ -20,16 +20,16 @@ typedef NS_ENUM(AUParameterAddress, AKPluckedStringParameter) {
 
 #ifndef __cplusplus
 
-AKDSPRef createPluckedStringDSP(int channelCount, double sampleRate);
+void *createPluckedStringDSP(int nChannels, double sampleRate);
 
 #else
 
 #import "AKSoundpipeDSPBase.hpp"
 
 class AKPluckedStringDSP : public AKSoundpipeDSPBase {
-    sp_pluck *pluck;
-    float internalTrigger = 0;
 
+    sp_pluck *_pluck;
+    float internalTrigger = 0;
 private:
     AKLinearParameterRamp frequencyRamp;
     AKLinearParameterRamp amplitudeRamp;
@@ -52,8 +52,8 @@ public:
                 amplitudeRamp.setTarget(value, immediate);
                 break;
             case AKPluckedStringParameterRampDuration:
-                frequencyRamp.setRampDuration(value, sampleRate);
-                amplitudeRamp.setRampDuration(value, sampleRate);
+                frequencyRamp.setRampDuration(value, _sampleRate);
+                amplitudeRamp.setRampDuration(value, _sampleRate);
                 break;
         }
     }
@@ -66,22 +66,22 @@ public:
             case AKPluckedStringParameterAmplitude:
                 return amplitudeRamp.getTarget();
             case AKPluckedStringParameterRampDuration:
-                return frequencyRamp.getRampDuration(sampleRate);
+                return frequencyRamp.getRampDuration(_sampleRate);
         }
         return 0;
     }
 
-    void init(int channelCount, double sampleRate) override {
-        AKSoundpipeDSPBase::init(channelCount, sampleRate);
+    void init(int _channels, double _sampleRate) override {
+        AKSoundpipeDSPBase::init(_channels, _sampleRate);
 
-        sp_pluck_create(&pluck);
-        sp_pluck_init(sp, pluck, 110);
-        pluck->freq = 110;
-        pluck->amp = 0.5;
+        sp_pluck_create(&_pluck);
+        sp_pluck_init(_sp, _pluck, 110);
+        _pluck->freq = 110;
+        _pluck->amp = 0.5;
     }
 
     void deinit() override {
-        sp_pluck_destroy(&pluck);
+        sp_pluck_destroy(&_pluck);
     }
 
     void trigger() override {
@@ -102,20 +102,20 @@ public:
 
             // do ramping every 8 samples
             if ((frameOffset & 0x7) == 0) {
-                frequencyRamp.advanceTo(now + frameOffset);
-                amplitudeRamp.advanceTo(now + frameOffset);
+                frequencyRamp.advanceTo(_now + frameOffset);
+                amplitudeRamp.advanceTo(_now + frameOffset);
             }
             float frequency = frequencyRamp.getValue();
             float amplitude = amplitudeRamp.getValue();
-            pluck->freq = frequency;
-            pluck->amp = amplitude;
+            _pluck->freq = frequency;
+            _pluck->amp = amplitude;
 
-            for (int channel = 0; channel < channelCount; ++channel) {
-                float *out = (float *)outBufferListPtr->mBuffers[channel].mData + frameOffset;
+            for (int channel = 0; channel < _nChannels; ++channel) {
+                float *out = (float *)_outBufferListPtr->mBuffers[channel].mData + frameOffset;
 
-                if (isStarted) {
+                if (_playing) {
                     if (channel == 0) {
-                        sp_pluck_compute(sp, pluck, &internalTrigger, out);
+                        sp_pluck_compute(_sp, _pluck, &internalTrigger, out);
                     }
                 } else {
                     *out = 0.0;

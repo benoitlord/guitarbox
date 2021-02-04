@@ -7,7 +7,7 @@
 //
 
 import XCTest
-//@testable import GuitarBox
+@testable import GuitarBox
 
 class ChordRefTests: XCTestCase {
     

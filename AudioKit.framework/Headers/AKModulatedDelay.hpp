@@ -19,7 +19,7 @@ public:
     AKModulatedDelay(AKModulatedDelayType type);
     ~AKModulatedDelay();
     
-    void init(int channelCount, double sampleRate);
+    void init(int _channels, double _sampleRate);
     void deinit();
     
     void setModFrequencyHz(float freq);
@@ -38,8 +38,8 @@ protected:
     float modFreqHz, modDepthFraction, dryWetMix;
     AKModulatedDelayType effectType;
 
-    struct InternalData;
-    std::unique_ptr<InternalData> data;
+    struct _Internal;
+    std::unique_ptr<_Internal> _private;
 };
 
 #endif

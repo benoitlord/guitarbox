@@ -19,7 +19,7 @@ typedef NS_ENUM(AUParameterAddress, AKPeakingParametricEqualizerFilterParameter)
 
 #ifndef __cplusplus
 
-AKDSPRef createPeakingParametricEqualizerFilterDSP(int channelCount, double sampleRate);
+void *createPeakingParametricEqualizerFilterDSP(int nChannels, double sampleRate);
 
 #else
 
@@ -27,8 +27,8 @@ AKDSPRef createPeakingParametricEqualizerFilterDSP(int channelCount, double samp
 
 class AKPeakingParametricEqualizerFilterDSP : public AKSoundpipeDSPBase {
 private:
-    struct InternalData;
-    std::unique_ptr<InternalData> data;
+    struct _Internal;
+    std::unique_ptr<_Internal> _private;
  
 public:
     AKPeakingParametricEqualizerFilterDSP();
@@ -52,7 +52,7 @@ public:
     // Uses the ParameterAddress as a key
     float getParameter(AUParameterAddress address) override;
     
-    void init(int channelCount, double sampleRate) override;
+    void init(int _channels, double _sampleRate) override;
 
     void deinit() override;
 

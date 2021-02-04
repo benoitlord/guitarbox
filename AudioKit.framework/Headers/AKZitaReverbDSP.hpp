@@ -26,7 +26,7 @@ typedef NS_ENUM(AUParameterAddress, AKZitaReverbParameter) {
 
 #ifndef __cplusplus
 
-AKDSPRef createZitaReverbDSP(int channelCount, double sampleRate);
+void *createZitaReverbDSP(int nChannels, double sampleRate);
 
 #else
 
@@ -34,8 +34,8 @@ AKDSPRef createZitaReverbDSP(int channelCount, double sampleRate);
 
 class AKZitaReverbDSP : public AKSoundpipeDSPBase {
 private:
-    struct InternalData;
-    std::unique_ptr<InternalData> data;
+    struct _Internal;
+    std::unique_ptr<_Internal> _private;
  
 public:
     AKZitaReverbDSP();
@@ -80,7 +80,7 @@ public:
     // Uses the ParameterAddress as a key
     float getParameter(AUParameterAddress address) override;
     
-    void init(int channelCount, double sampleRate) override;
+    void init(int _channels, double _sampleRate) override;
 
     void deinit() override;
 

@@ -10,9 +10,13 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+typedef NS_ENUM(AUParameterAddress, AKDCBlockParameter) {
+    AKDCBlockParameterRampDuration
+};
+
 #ifndef __cplusplus
 
-AKDSPRef createDCBlockDSP(int channelCount, double sampleRate);
+void *createDCBlockDSP(int nChannels, double sampleRate);
 
 #else
 
@@ -20,15 +24,15 @@ AKDSPRef createDCBlockDSP(int channelCount, double sampleRate);
 
 class AKDCBlockDSP : public AKSoundpipeDSPBase {
 private:
-    struct InternalData;
-    std::unique_ptr<InternalData> data;
+    struct _Internal;
+    std::unique_ptr<_Internal> _private;
  
 public:
     AKDCBlockDSP();
 
     int defaultRampDurationSamples = 10000;
     
-    void init(int channelCount, double sampleRate) override;
+    void init(int _channels, double _sampleRate) override;
 
     void deinit() override;
 

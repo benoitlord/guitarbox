@@ -8,59 +8,58 @@
 
 #pragma once
 
-#import <AVFoundation/AVFoundation.h>
+#import <Foundation/Foundation.h>
 
-typedef NS_ENUM(AUParameterAddress, AKSynthParameter)
+typedef NS_ENUM(int64_t, AKSynthParameter)
 {
     // ramped parameters
     
-    AKSynthParameterMasterVolume,
-    AKSynthParameterPitchBend,
-    AKSynthParameterVibratoDepth,
-    AKSynthParameterFilterCutoff,
-    AKSynthParameterFilterStrength,
-    AKSynthParameterFilterResonance,
+    masterVolumeParameter,
+    pitchBendParameter,
+    vibratoDepthParameter,
+    filterCutoffParameter,
+    filterResonanceParameter,
 
     // simple parameters
 
-    AKSynthParameterAttackDuration,
-    AKSynthParameterDecayDuration,
-    AKSynthParameterSustainLevel,
-    AKSynthParameterReleaseDuration,
-    AKSynthParameterFilterAttackDuration,
-    AKSynthParameterFilterDecayDuration,
-    AKSynthParameterFilterSustainLevel,
-    AKSynthParameterFilterReleaseDuration,
+    attackDurationParameter,
+    decayDurationParameter,
+    sustainLevelParameter,
+    releaseDurationParameter,
 
+    filterAttackDurationParameter,
+    filterDecayDurationParameter,
+    filterSustainLevelParameter,
+    filterReleaseDurationParameter,
+    
     // ensure this is always last in the list, to simplify parameter addressing
-    AKSynthParameterRampDuration,
+    rampDurationParameter,
 };
 
 #ifndef __cplusplus
 
-AKDSPRef createAKSynthDSP(int channelCount, double sampleRate);
-void doAKSynthPlayNote(AKDSPRef pDSP, UInt8 noteNumber, UInt8 velocity, float noteFrequency);
-void doAKSynthStopNote(AKDSPRef pDSP, UInt8 noteNumber, bool immediate);
-void doAKSynthSustainPedal(AKDSPRef pDSP, bool pedalDown);
+void *AKSynthCreateDSP(int nChannels, double sampleRate);
+void AKSynthPlayNote(void *pDSP, UInt8 noteNumber, UInt8 velocity, float noteFrequency);
+void AKSynthStopNote(void *pDSP, UInt8 noteNumber, bool immediate);
+void AKSynthSustainPedal(void *pDSP, bool pedalDown);
 
 #else
 
 #import "AKDSPBase.hpp"
-#include "AKCoreSynth.hpp"
+#include "AKSynth.hpp"
 #include "AKLinearParameterRamp.hpp"
 
-struct AKSynthDSP : AKDSPBase, AKCoreSynth
+struct AKSynthDSP : AKDSPBase, AKSynth
 {
     // ramped parameters
     AKLinearParameterRamp masterVolumeRamp;
     AKLinearParameterRamp pitchBendRamp;
     AKLinearParameterRamp vibratoDepthRamp;
     AKLinearParameterRamp filterCutoffRamp;
-    AKLinearParameterRamp filterStrengthRamp;
     AKLinearParameterRamp filterResonanceRamp;
     
     AKSynthDSP();
-    void init(int channelCount, double sampleRate) override;
+    void init(int nChannels, double sampleRate) override;
     void deinit() override;
 
     void setParameter(uint64_t address, float value, bool immediate) override;

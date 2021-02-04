@@ -17,7 +17,7 @@ typedef NS_ENUM(AUParameterAddress, AKHighPassButterworthFilterParameter) {
 
 #ifndef __cplusplus
 
-AKDSPRef createHighPassButterworthFilterDSP(int channelCount, double sampleRate);
+void *createHighPassButterworthFilterDSP(int nChannels, double sampleRate);
 
 #else
 
@@ -25,8 +25,8 @@ AKDSPRef createHighPassButterworthFilterDSP(int channelCount, double sampleRate)
 
 class AKHighPassButterworthFilterDSP : public AKSoundpipeDSPBase {
 private:
-    struct InternalData;
-    std::unique_ptr<InternalData> data;
+    struct _Internal;
+    std::unique_ptr<_Internal> _private;
  
 public:
     AKHighPassButterworthFilterDSP();
@@ -44,7 +44,7 @@ public:
     // Uses the ParameterAddress as a key
     float getParameter(AUParameterAddress address) override;
     
-    void init(int channelCount, double sampleRate) override;
+    void init(int _channels, double _sampleRate) override;
 
     void deinit() override;
 

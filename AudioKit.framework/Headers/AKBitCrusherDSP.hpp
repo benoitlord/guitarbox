@@ -18,7 +18,7 @@ typedef NS_ENUM(AUParameterAddress, AKBitCrusherParameter) {
 
 #ifndef __cplusplus
 
-AKDSPRef createBitCrusherDSP(int channelCount, double sampleRate);
+void *createBitCrusherDSP(int nChannels, double sampleRate);
 
 #else
 
@@ -26,8 +26,8 @@ AKDSPRef createBitCrusherDSP(int channelCount, double sampleRate);
 
 class AKBitCrusherDSP : public AKSoundpipeDSPBase {
 private:
-    struct InternalData;
-    std::unique_ptr<InternalData> data;
+    struct _Internal;
+    std::unique_ptr<_Internal> _private;
  
 public:
     AKBitCrusherDSP();
@@ -48,7 +48,7 @@ public:
     // Uses the ParameterAddress as a key
     float getParameter(AUParameterAddress address) override;
     
-    void init(int channelCount, double sampleRate) override;
+    void init(int _channels, double _sampleRate) override;
 
     void deinit() override;
 

@@ -38,8 +38,16 @@
 		D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */; };
 		D78E54C51F85522C004E47F1 /* Accord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C41F85522C004E47F1 /* Accord.swift */; };
 		D78F24C12004011700CCF5D2 /* TunerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78F24C02004011700CCF5D2 /* TunerViewController.swift */; };
+		D79A1AFF21C5AD110069420B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A1AFE21C5AD110069420B /* SettingsViewController.swift */; };
 		D7A05D20201BCCE70065DFFF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A05D22201BCCE70065DFFF /* InfoPlist.strings */; };
 		D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1A4071FBC8B250091E5E2 /* favorites.swift */; };
+		D7AB1D1E21AB316300991B52 /* Mukta-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7AB1D1B21AB316300991B52 /* Mukta-Bold.ttf */; };
+		D7AB1D1F21AB316300991B52 /* Mukta-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7AB1D1C21AB316300991B52 /* Mukta-Medium.ttf */; };
+		D7AB1D2021AB316300991B52 /* Mukta-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7AB1D1D21AB316300991B52 /* Mukta-Regular.ttf */; };
+		D7AB1D2221AB36C300991B52 /* RecorderHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB1D2121AB36C300991B52 /* RecorderHomeTableViewController.swift */; };
+		D7AB1D2421AB42E800991B52 /* RecorderHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB1D2321AB42E800991B52 /* RecorderHomeTableViewCell.swift */; };
+		D7AB1D2621AB4C3F00991B52 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB1D2521AB4C3F00991B52 /* Recording.swift */; };
+		D7AB1D2821AB52EC00991B52 /* NewRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB1D2721AB52EC00991B52 /* NewRecordingViewController.swift */; };
 		D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */; };
 		D7EEC352200915690016ACF3 /* metronome_son_bas.wav in Resources */ = {isa = PBXBuildFile; fileRef = D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */; };
 		D7EEC353200915690016ACF3 /* metronome_son_haut.wav in Resources */ = {isa = PBXBuildFile; fileRef = D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */; };
@@ -87,7 +95,6 @@
 		D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Regular.ttf"; sourceTree = "<group>"; };
 		D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Bold.ttf"; sourceTree = "<group>"; };
 		D7358D76200E9DC700F5D4F5 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		D75B8D50242EEF2C004AB579 /* GuitarBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GuitarBox.entitlements; path = GuitarBox/GuitarBox.entitlements; sourceTree = "<group>"; };
 		D75D4B7720041BAA00DE5CA3 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D76632741FF96F2A00CF6949 /* AccordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccordTableViewController.swift; sourceTree = "<group>"; };
 		D76A65DE201A61D300F5C568 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -105,10 +112,18 @@
 		D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordTableViewCell.swift; sourceTree = "<group>"; };
 		D78E54C41F85522C004E47F1 /* Accord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accord.swift; sourceTree = "<group>"; };
 		D78F24C02004011700CCF5D2 /* TunerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunerViewController.swift; sourceTree = "<group>"; };
+		D79A1AFE21C5AD110069420B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D7A05D21201BCCE70065DFFF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7A05D23201BCCEC0065DFFF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7A05D25201BCE820065DFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		D7A1A4071FBC8B250091E5E2 /* favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favorites.swift; sourceTree = "<group>"; };
+		D7AB1D1B21AB316300991B52 /* Mukta-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Bold.ttf"; sourceTree = "<group>"; };
+		D7AB1D1C21AB316300991B52 /* Mukta-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Medium.ttf"; sourceTree = "<group>"; };
+		D7AB1D1D21AB316300991B52 /* Mukta-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Regular.ttf"; sourceTree = "<group>"; };
+		D7AB1D2121AB36C300991B52 /* RecorderHomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderHomeTableViewController.swift; sourceTree = "<group>"; };
+		D7AB1D2321AB42E800991B52 /* RecorderHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderHomeTableViewCell.swift; sourceTree = "<group>"; };
+		D7AB1D2521AB4C3F00991B52 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		D7AB1D2721AB52EC00991B52 /* NewRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordingViewController.swift; sourceTree = "<group>"; };
 		D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_son_haut.wav; sourceTree = "<group>"; };
@@ -169,7 +184,7 @@
 		D7763D3B1F8509DA007AE885 = {
 			isa = PBXGroup;
 			children = (
-				D75B8D50242EEF2C004AB579 /* GuitarBox.entitlements */,
+				D7AB1D1A21AB316300991B52 /* Mukta */,
 				D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */,
 				D7763D461F8509DB007AE885 /* ChordRef */,
 				D7763D5B1F8509DB007AE885 /* ChordRefTests */,
@@ -203,6 +218,7 @@
 				D7086B361FA0F2EF00F4DC9C /* LaunchScreen.storyboard */,
 				D7763D471F8509DB007AE885 /* AppDelegate.swift */,
 				D78E54C41F85522C004E47F1 /* Accord.swift */,
+				D7AB1D2521AB4C3F00991B52 /* Recording.swift */,
 				D7A1A4071FBC8B250091E5E2 /* favorites.swift */,
 				D7763D671F851CAA007AE885 /* BoutonFavoris.swift */,
 				D784E4F21FE458C400044EA9 /* BoutonSon.swift */,
@@ -214,6 +230,10 @@
 				D7763D491F8509DB007AE885 /* AccordViewController.swift */,
 				D78F24C02004011700CCF5D2 /* TunerViewController.swift */,
 				D717070C200704A200D9E062 /* MetronomeViewController.swift */,
+				D7AB1D2121AB36C300991B52 /* RecorderHomeTableViewController.swift */,
+				D7AB1D2321AB42E800991B52 /* RecorderHomeTableViewCell.swift */,
+				D7AB1D2721AB52EC00991B52 /* NewRecordingViewController.swift */,
+				D79A1AFE21C5AD110069420B /* SettingsViewController.swift */,
 			);
 			path = ChordRef;
 			sourceTree = "<group>";
@@ -225,6 +245,16 @@
 				D7763D5E1F8509DB007AE885 /* Info.plist */,
 			);
 			path = ChordRefTests;
+			sourceTree = "<group>";
+		};
+		D7AB1D1A21AB316300991B52 /* Mukta */ = {
+			isa = PBXGroup;
+			children = (
+				D7AB1D1B21AB316300991B52 /* Mukta-Bold.ttf */,
+				D7AB1D1C21AB316300991B52 /* Mukta-Medium.ttf */,
+				D7AB1D1D21AB316300991B52 /* Mukta-Regular.ttf */,
+			);
+			path = Mukta;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,12 +308,12 @@
 				TargetAttributes = {
 					D7763D431F8509DB007AE885 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1140;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					D7763D571F8509DB007AE885 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1140;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D7763D431F8509DB007AE885;
 					};
@@ -314,6 +344,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7AB1D1F21AB316300991B52 /* Mukta-Medium.ttf in Resources */,
+				D7AB1D1E21AB316300991B52 /* Mukta-Bold.ttf in Resources */,
 				D7EEC352200915690016ACF3 /* metronome_son_bas.wav in Resources */,
 				D7EEC353200915690016ACF3 /* metronome_son_haut.wav in Resources */,
 				D7F503C81FEC0670001DCF8C /* sons in Resources */,
@@ -321,6 +353,7 @@
 				D76A65DD201A61D300F5C568 /* Localizable.strings in Resources */,
 				D723646A1FA0E80100DA6A50 /* Mukta-Bold.ttf in Resources */,
 				D7763D4F1F8509DB007AE885 /* Assets.xcassets in Resources */,
+				D7AB1D2021AB316300991B52 /* Mukta-Regular.ttf in Resources */,
 				D7086B371FA0F2F000F4DC9C /* LaunchScreen.storyboard in Resources */,
 				D7763D4D1F8509DB007AE885 /* Main.storyboard in Resources */,
 				D7A05D20201BCCE70065DFFF /* InfoPlist.strings in Resources */,
@@ -345,12 +378,17 @@
 				D717070D200704A200D9E062 /* MetronomeViewController.swift in Sources */,
 				D78F24C12004011700CCF5D2 /* TunerViewController.swift in Sources */,
 				D76632751FF96F2A00CF6949 /* AccordTableViewController.swift in Sources */,
+				D7AB1D2221AB36C300991B52 /* RecorderHomeTableViewController.swift in Sources */,
+				D7AB1D2621AB4C3F00991B52 /* Recording.swift in Sources */,
 				D7763D4A1F8509DB007AE885 /* AccordViewController.swift in Sources */,
+				D7AB1D2421AB42E800991B52 /* RecorderHomeTableViewCell.swift in Sources */,
 				D7763D481F8509DB007AE885 /* AppDelegate.swift in Sources */,
 				D75D4B7820041BAA00DE5CA3 /* MenuViewController.swift in Sources */,
 				D78E54C51F85522C004E47F1 /* Accord.swift in Sources */,
+				D79A1AFF21C5AD110069420B /* SettingsViewController.swift in Sources */,
 				D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */,
 				D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */,
+				D7AB1D2821AB52EC00991B52 /* NewRecordingViewController.swift in Sources */,
 				D784E4F31FE458C500044EA9 /* BoutonSon.swift in Sources */,
 				D7358D77200E9DC700F5D4F5 /* AboutViewController.swift in Sources */,
 				D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */,
@@ -530,9 +568,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GuitarBox/GuitarBox.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 4QR3N73BQD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -542,12 +578,10 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ChordRef/Base.lproj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.1.6;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -556,9 +590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GuitarBox/GuitarBox.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 4QR3N73BQD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -568,12 +600,10 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ChordRef/Base.lproj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.1.6;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -589,7 +619,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRefTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarBox.app/GuitarBox";
 			};
@@ -606,7 +636,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRefTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarBox.app/GuitarBox";
 			};

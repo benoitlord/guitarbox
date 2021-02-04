@@ -32,7 +32,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        //searchController.searchBar.setValue(NSLocalizedString("Annuler", comment: ""), forKey:"_cancelButtonText")
+        searchController.searchBar.setValue(NSLocalizedString("Annuler", comment: ""), forKey:"_cancelButtonText")
         
         //Fonctions à ajouter si l'utilisateur utilise iOS 11
         if #available (iOS 11, *){
@@ -73,6 +73,9 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             
             //Couleur du texte dans la search bar
             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = convertToNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue: UIColor.white])
+            
+            //Changer le placeholder de "Search" à "Rechercher"
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Rechercher", comment: ""), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             
             //Changer les images pour l'icône de recherche et pour effacer
             searchController.searchBar.setImage(UIImage(named: "clear"), for: UISearchBar.Icon.clear, state: .normal)
@@ -120,11 +123,6 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         if #available(iOS 11.0, *) {
             self.navigationItem.hidesSearchBarWhenScrolling = true
         }
-        
-        //Changer le placeholder de "Search" à "Rechercher" et sa couleur
-        let UITextField = searchController.searchBar.value(forKey: "searchField") as? UITextField;
-        
-        UITextField!.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Rechercher", comment: ""), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]);
     }
     
     override func viewWillDisappear(_ animated: Bool) {

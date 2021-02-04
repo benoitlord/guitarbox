@@ -10,15 +10,15 @@
 #import <AVFoundation/AVFoundation.h>
 
 @protocol AKKernelUnit
--(AUImplementorValueProvider _Null_unspecified)getter;
--(AUImplementorValueObserver _Null_unspecified)setter;
+-(AUImplementorValueProvider)getter;
+-(AUImplementorValueObserver)setter;
 @end
 
 @interface AKAudioUnit : AUAudioUnit<AKKernelUnit>
-@property AUAudioUnitBus * _Nonnull outputBus;
-@property AUAudioUnitBusArray * _Nonnull inputBusArray;
-@property AUAudioUnitBusArray * _Nonnull outputBusArray;
-@property AVAudioFormat * _Nonnull defaultFormat;
+@property AUAudioUnitBus *outputBus;
+@property AUAudioUnitBusArray *inputBusArray;
+@property AUAudioUnitBusArray *outputBusArray;
+@property AVAudioFormat *defaultFormat;
 
 - (void)start;
 - (void)stop;
@@ -27,8 +27,8 @@
 
 @property double rampDuration;
 
--(AUImplementorValueProvider _Null_unspecified)getter;
--(AUImplementorValueObserver _Null_unspecified)setter;
+-(AUImplementorValueProvider)getter;
+-(AUImplementorValueObserver)setter;
 
 @end
 
@@ -38,41 +38,33 @@
 //@end
 
 @interface AUParameter(Ext)
-//-(_Nonnull instancetype)init:(NSString * _Nonnull)identifier
-//                        name:(NSString * _Nonnull)name
-//                     address:(AUParameterAddress)address
-//                         min:(AUValue)min
-//                         max:(AUValue)max
-//                        unit:(AudioUnitParameterUnit)unit
-//                       flags:(AudioUnitParameterOptions)flags;
+-(instancetype)init:(NSString *)identifier
+               name:(NSString *)name
+            address:(AUParameterAddress)address
+                min:(AUValue)min
+                max:(AUValue)max
+               unit:(AudioUnitParameterUnit)unit;
 
-+(_Nonnull instancetype)parameterWithIdentifier:(NSString * _Nonnull)identifier
-                                           name:(NSString * _Nonnull)name
-                                        address:(AUParameterAddress)address
-                                            min:(AUValue)min
-                                            max:(AUValue)max
-                                           unit:(AudioUnitParameterUnit)unit
-                                          flags:(AudioUnitParameterOptions)flags;
++(instancetype)parameter:(NSString *)identifier
+                    name:(NSString *)name
+                 address:(AUParameterAddress)address
+                     min:(AUValue)min
+                     max:(AUValue)max
+                    unit:(AudioUnitParameterUnit)unit;
 
-+(_Nonnull instancetype)parameterWithIdentifier:(NSString * _Nonnull)identifier
-                                           name:(NSString * _Nonnull)name
-                                        address:(AUParameterAddress)address
-                                            min:(AUValue)min
-                                            max:(AUValue)max
-                                           unit:(AudioUnitParameterUnit)unit;
-//+(_Nonnull instancetype)frequency:(NSString * _Nonnull)identifier
-//                             name:(NSString * _Nonnull)name
-//                          address:(AUParameterAddress)address;
++(instancetype)frequency:(NSString *)identifier
+                    name:(NSString *)name
+                 address:(AUParameterAddress)address;
 
 @end
 
 @interface AUParameterTree(Ext)
-+(_Nonnull instancetype)treeWithChildren:(NSArray<AUParameter *> * _Nonnull)children;
++(instancetype)tree:(NSArray<AUParameterNode *> *)children;
 @end
 
-//@interface AVAudioNode(Ext)
-//-(instancetype)initWithComponent:(AudioComponentDescription)component;
-//@end
+@interface AVAudioNode(Ext)
+-(instancetype)initWithComponent:(AudioComponentDescription)component;
+@end
 
 
 #define standardKernelPassthroughs() \

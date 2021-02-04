@@ -23,7 +23,7 @@ typedef NS_ENUM(AUParameterAddress, AKPWMOscillatorParameter) {
 
 #ifndef __cplusplus
 
-AKDSPRef createPWMOscillatorDSP(int channelCount, double sampleRate);
+void *createPWMOscillatorDSP(int nChannels, double sampleRate);
 
 #else
 
@@ -31,7 +31,7 @@ AKDSPRef createPWMOscillatorDSP(int channelCount, double sampleRate);
 
 class AKPWMOscillatorDSP : public AKSoundpipeDSPBase {
 
-    sp_blsquare *blsquare;
+    sp_blsquare *_blsquare;
 
 
 private:
@@ -74,11 +74,11 @@ public:
                 detuningMultiplierRamp.setTarget(value, immediate);
                 break;
             case AKPWMOscillatorParameterRampDuration:
-                frequencyRamp.setRampDuration(value, sampleRate);
-                amplitudeRamp.setRampDuration(value, sampleRate);
-                pulseWidthRamp.setRampDuration(value, sampleRate);
-                detuningOffsetRamp.setRampDuration(value, sampleRate);
-                detuningMultiplierRamp.setRampDuration(value, sampleRate);
+                frequencyRamp.setRampDuration(value, _sampleRate);
+                amplitudeRamp.setRampDuration(value, _sampleRate);
+                pulseWidthRamp.setRampDuration(value, _sampleRate);
+                detuningOffsetRamp.setRampDuration(value, _sampleRate);
+                detuningMultiplierRamp.setRampDuration(value, _sampleRate);
                 break;
         }
     }
@@ -97,24 +97,24 @@ public:
             case AKPWMOscillatorParameterDetuningMultiplier:
                 return detuningMultiplierRamp.getTarget();
             case AKPWMOscillatorParameterRampDuration:
-                return frequencyRamp.getRampDuration(sampleRate);
+                return frequencyRamp.getRampDuration(_sampleRate);
         }
         return 0;
     }
 
-    void init(int channelCount, double sampleRate) override {
-        AKSoundpipeDSPBase::init(channelCount, sampleRate);
-        isStarted = false;
+    void init(int _channels, double _sampleRate) override {
+        AKSoundpipeDSPBase::init(_channels, _sampleRate);
+        _playing = false;
         
-        sp_blsquare_create(&blsquare);
-        sp_blsquare_init(sp, blsquare);
-        *blsquare->freq = 440;
-        *blsquare->amp = 1.0;
-        *blsquare->width = 0.5;
+        sp_blsquare_create(&_blsquare);
+        sp_blsquare_init(_sp, _blsquare);
+        *_blsquare->freq = 440;
+        *_blsquare->amp = 1.0;
+        *_blsquare->width = 0.5;
    }
 
     void deinit() override {
-        sp_blsquare_destroy(&blsquare);
+        sp_blsquare_destroy(&_blsquare);
     }
 
     void process(AUAudioFrameCount frameCount, AUAudioFrameCount bufferOffset) override {
@@ -124,28 +124,28 @@ public:
 
             // do ramping every 8 samples
             if ((frameOffset & 0x7) == 0) {
-                frequencyRamp.advanceTo(now + frameOffset);
-                amplitudeRamp.advanceTo(now + frameOffset);
-                pulseWidthRamp.advanceTo(now + frameOffset);
-                detuningOffsetRamp.advanceTo(now + frameOffset);
-                detuningMultiplierRamp.advanceTo(now + frameOffset);
+                frequencyRamp.advanceTo(_now + frameOffset);
+                amplitudeRamp.advanceTo(_now + frameOffset);
+                pulseWidthRamp.advanceTo(_now + frameOffset);
+                detuningOffsetRamp.advanceTo(_now + frameOffset);
+                detuningMultiplierRamp.advanceTo(_now + frameOffset);
             }
             float frequency = frequencyRamp.getValue();
             float amplitude = amplitudeRamp.getValue();
             float pulseWidth = pulseWidthRamp.getValue();
             float detuningOffset = detuningOffsetRamp.getValue();
             float detuningMultiplier = detuningMultiplierRamp.getValue();
-            *blsquare->freq = frequency * detuningMultiplier + detuningOffset;
-            *blsquare->amp = amplitude;
-            *blsquare->width = pulseWidth;
+            *_blsquare->freq = frequency * detuningMultiplier + detuningOffset;
+            *_blsquare->amp = amplitude;
+            *_blsquare->width = pulseWidth;
 
             float temp = 0;
-            for (int channel = 0; channel < channelCount; ++channel) {
-                float *out = (float *)outBufferListPtr->mBuffers[channel].mData + frameOffset;
+            for (int channel = 0; channel < _nChannels; ++channel) {
+                float *out = (float *)_outBufferListPtr->mBuffers[channel].mData + frameOffset;
 
-                if (isStarted) {
+                if (_playing) {
                     if (channel == 0) {
-                        sp_blsquare_compute(sp, blsquare, nil, &temp);
+                        sp_blsquare_compute(_sp, _blsquare, nil, &temp);
                     }
                     *out = temp;
                 } else {

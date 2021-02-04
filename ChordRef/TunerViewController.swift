@@ -74,7 +74,7 @@ class TunerViewController: UIViewController, GADBannerViewDelegate {
         catch{
             print("AudioKit did not start!")
         }
-        micro!.start()
+        micro.start()
         tracker!.start()
         
         //Timer qui répète la fonction updateTuner() à chaque 0.1 seconde

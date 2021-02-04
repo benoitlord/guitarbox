@@ -19,7 +19,7 @@ typedef NS_ENUM(AUParameterAddress, AKThreePoleLowpassFilterParameter) {
 
 #ifndef __cplusplus
 
-AKDSPRef createThreePoleLowpassFilterDSP(int channelCount, double sampleRate);
+void *createThreePoleLowpassFilterDSP(int nChannels, double sampleRate);
 
 #else
 
@@ -27,8 +27,8 @@ AKDSPRef createThreePoleLowpassFilterDSP(int channelCount, double sampleRate);
 
 class AKThreePoleLowpassFilterDSP : public AKSoundpipeDSPBase {
 private:
-    struct InternalData;
-    std::unique_ptr<InternalData> data;
+    struct _Internal;
+    std::unique_ptr<_Internal> _private;
  
 public:
     AKThreePoleLowpassFilterDSP();
@@ -52,7 +52,7 @@ public:
     // Uses the ParameterAddress as a key
     float getParameter(AUParameterAddress address) override;
     
-    void init(int channelCount, double sampleRate) override;
+    void init(int _channels, double _sampleRate) override;
 
     void deinit() override;
 

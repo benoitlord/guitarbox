@@ -39,7 +39,7 @@
 /**
  A data structure that holds information about audio data over time. It contains a circular buffer to incrementally write the audio data to and a scratch buffer to hold a window of audio data relative to the whole circular buffer. In use, this will provide a way to continuously append data while having an adjustable viewable window described by the bufferSize.
  */
-typedef struct _EZPlotHistoryInfo
+typedef struct
 {
     float            *buffer;
     int               bufferSize;
@@ -56,6 +56,16 @@ typedef struct
     AudioUnit audioUnit;
     AUNode    node;
 } EZAudioNodeInfo;
+
+//------------------------------------------------------------------------------
+#pragma mark - Types
+//------------------------------------------------------------------------------
+
+#if TARGET_OS_IPHONE
+typedef CGRect EZRect;
+#elif TARGET_OS_MAC
+typedef NSRect EZRect;
+#endif
 
 //------------------------------------------------------------------------------
 #pragma mark - EZAudioUtilities

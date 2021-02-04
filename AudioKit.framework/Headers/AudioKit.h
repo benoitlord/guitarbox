@@ -26,7 +26,6 @@ FOUNDATION_EXPORT const unsigned char AudioKitVersionString[];
 #import "AKDSPKernel.hpp"
 #import "AKSoundpipeKernel.hpp"
 #import "AKBankDSPKernel.hpp"
-#import "AKFilterSynthDSPKernel.hpp"
 #import "ExceptionCatcher.h"
 
 // Analysis
@@ -42,7 +41,6 @@ FOUNDATION_EXPORT const unsigned char AudioKitVersionString[];
 
 // Effects / Delay
 #import "AKVariableDelayDSP.hpp"
-#import "AKStereoDelayDSP.hpp"
 
 // Effects / Distortion
 #import "AKBitCrusherDSP.hpp"
@@ -96,7 +94,7 @@ FOUNDATION_EXPORT const unsigned char AudioKitVersionString[];
 // Effects / Reverb
 #import "AKChowningReverbDSP.hpp"
 #import "AKCombFilterReverbDSP.hpp"
-#import "AKConvolutionDSP.hpp"
+#import "AKConvolutionAudioUnit.h"
 #import "AKCostelloReverbDSP.hpp"
 #import "AKFlatFrequencyResponseReverbDSP.hpp"
 #import "AKZitaReverbDSP.hpp"
@@ -111,10 +109,17 @@ FOUNDATION_EXPORT const unsigned char AudioKitVersionString[];
 
 // Generators / Oscillators
 #import "AKFMOscillatorDSP.hpp"
+#import "AKFMOscillatorBankAudioUnit.h"
 #import "AKMorphingOscillatorDSP.hpp"
+#import "AKMorphingOscillatorBankAudioUnit.h"
+#import "AKMorphingOscillatorBankDSPKernel.hpp"
 #import "AKOscillatorDSP.hpp"
+#import "AKOscillatorBankAudioUnit.h"
 #import "AKPhaseDistortionOscillatorDSP.hpp"
+#import "AKPhaseDistortionOscillatorBankAudioUnit.h"
 #import "AKPWMOscillatorDSP.hpp"
+#import "AKPWMOscillatorBankAudioUnit.h"
+#import "AKPWMOscillatorBankDSPKernel.hpp"
 
 // Generators / Physical Models
 #import "AKClarinetDSP.hpp"
@@ -122,48 +127,27 @@ FOUNDATION_EXPORT const unsigned char AudioKitVersionString[];
 #import "AKFluteDSP.hpp"
 #import "AKMandolinAudioUnit.h"
 #import "AKMetalBarDSP.hpp"
-#import "AKRhodesPianoDSP.hpp"
+#import "AKRhodesPianoAudioUnit.h"
 #import "AKPluckedStringDSP.hpp"
-#import "AKShakerDSP.hpp"
-#import "AKTubularBellsDSP.hpp"
+#import "AKShakerAudioUnit.h"
+#import "AKTubularBellsAudioUnit.h"
 #import "AKVocalTractDSP.hpp"
 
-// Generators / Polysynths
-#import "AKFMOscillatorBankAudioUnit.h"
-#import "AKMorphingOscillatorBankAudioUnit.h"
-#import "AKOscillatorBankAudioUnit.h"
-#import "AKPhaseDistortionOscillatorBankAudioUnit.h"
-#import "AKPWMOscillatorBankAudioUnit.h"
-#import "AKSynthDSP.hpp"
-
-// Generators / Filter Polysynths
-#import "AKFMOscillatorFilterSynthAudioUnit.h"
-#import "AKMorphingOscillatorFilterSynthAudioUnit.h"
-#import "AKOscillatorFilterSynthAudioUnit.h"
-#import "AKPhaseDistortionOscillatorFilterSynthAudioUnit.h"
-#import "AKPWMOscillatorFilterSynthAudioUnit.h"
-
 // Mixing
-#import "AKAutoPannerDSP.hpp"
 #import "AKBalancerAudioUnit.h"
 #import "AKBoosterDSP.hpp"
-#import "AKFaderDSP.hpp"
 #import "AKPannerDSP.hpp"
 #import "AKStereoFieldLimiterDSP.hpp"
 
 // Playback
-#import "AKPhaseLockedVocoderDSP.hpp"
+#import "AKPhaseLockedVocoderAudioUnit.h"
+#import "AKSamplePlayerAudioUnit.h"
 #import "AKWaveTableAudioUnit.h"
 #import "AKDiskStreamerAudioUnit.h"
 #import "AKPresetManager.h"
 #import "AKSampler_Typedefs.h"
 #import "AKCoreSampler.hpp"
-#import "AKCoreSynth.hpp"
 #import "AKSamplerDSP.hpp"
-
-#if !TARGET_OS_TV
-#import "AKCallbackInstrumentAudioUnit.h"
-#endif
 
 // Testing
 #import "AKTesterAudioUnit.h"
@@ -186,16 +170,13 @@ FOUNDATION_EXPORT const unsigned char AudioKitVersionString[];
 #import "ParameterRamper.hpp"
 #import "BufferedAudioBus.hpp"
 #import "AKTimeline.h"
-#import "AudioEngineUnit.h"
 
 // Sequencer
 #import "AKSamplerMetronome.h"
-#if !TARGET_OS_TV
-#import "AKSequencerEngine.h"
-#endif
 
 // Swift/ObjC/C/C++ Inter-operability
 #import "AKInterop.h"
 
-// Automation
-#import "AKParameterAutomation.h"
+// Synth
+#import "AKSynth.hpp"
+#import "AKSynthDSP.hpp"

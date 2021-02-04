@@ -17,6 +17,7 @@
 "Accordeur" = "Accordeur";
 
 "Métronome" = "Métronome";
+"Recorder" = "Enregistreur";
 "Aucun" = "Aucun";
 "Jouer les temps forts ?" = "Jouer les temps forts ?";
 "Démarrer" = "Démarrer";
@@ -27,3 +28,5 @@
 "Texte rating" = "Allez notez l'application sur l'App Store";
 "OK rating" = "D'accord!";
 "Cancel rating" = "Non merci";
+
+"new" = "Nouvel enregistrement";

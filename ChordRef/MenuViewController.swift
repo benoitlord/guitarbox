@@ -17,6 +17,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var AccordsLabel: UILabel!
     @IBOutlet weak var AccordeurLabel: UILabel!
     @IBOutlet weak var MetronomeLabel: UILabel!
+    @IBOutlet weak var RecorderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class MenuViewController: UIViewController {
         AccordsLabel.text = NSLocalizedString("Livre d'accords", comment: "")
         AccordeurLabel.text = NSLocalizedString("Accordeur", comment: "")
         MetronomeLabel.text = NSLocalizedString("Métronome", comment: "")
+        RecorderLabel.text = NSLocalizedString("Recorder", comment: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {

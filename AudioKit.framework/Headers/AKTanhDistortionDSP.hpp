@@ -20,7 +20,7 @@ typedef NS_ENUM(AUParameterAddress, AKTanhDistortionParameter) {
 
 #ifndef __cplusplus
 
-AKDSPRef createTanhDistortionDSP(int channelCount, double sampleRate);
+void *createTanhDistortionDSP(int nChannels, double sampleRate);
 
 #else
 
@@ -28,8 +28,8 @@ AKDSPRef createTanhDistortionDSP(int channelCount, double sampleRate);
 
 class AKTanhDistortionDSP : public AKSoundpipeDSPBase {
 private:
-    struct InternalData;
-    std::unique_ptr<InternalData> data;
+    struct _Internal;
+    std::unique_ptr<_Internal> _private;
  
 public:
     AKTanhDistortionDSP();
@@ -56,7 +56,7 @@ public:
     // Uses the ParameterAddress as a key
     float getParameter(AUParameterAddress address) override;
     
-    void init(int channelCount, double sampleRate) override;
+    void init(int _channels, double _sampleRate) override;
 
     void deinit() override;
 

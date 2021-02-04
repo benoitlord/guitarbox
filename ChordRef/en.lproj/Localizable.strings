@@ -17,6 +17,7 @@
 "Accordeur" = "Tuner";
 
 "Métronome" = "Metronome";
+"Recorder" = "Recorder";
 "Aucun" = "None";
 "Jouer les temps forts ?" = "Play strong beats?";
 "Démarrer" = "Start";
@@ -27,5 +28,7 @@
 "Texte rating" = "Leave a review on the App Store.";
 "OK rating" = "Sure!";
 "Cancel rating" = "No thanks";
+
+"new" = "New Recording";
 
 

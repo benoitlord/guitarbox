@@ -2,7 +2,7 @@
 //  EZAudioFile.h
 //  EZAudio
 //
-//  Created by Syed Haris Ali, revision history on Github.
+//  Created by Syed Haris Ali, revision history on Githbub.
 //  Copyright (c) 2013 Syed Haris Ali. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,7 +40,7 @@
  @param waveformData An array of float arrays, each representing a channel of audio data from the file
  @param length       An int representing the length of each channel of float audio data
  */
-typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable waveformData, int length);
+typedef void (^EZAudioWaveformDataCompletionBlock)(float **waveformData, int length);
 
 //------------------------------------------------------------------------------
 #pragma mark - EZAudioFileDelegate
@@ -58,10 +58,10 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param bufferSize       The length of the buffers float arrays
  @param numberOfChannels The number of channels. 2 for stereo, 1 for mono.
  */
-- (void)       audioFile:(nonnull EZAudioFile *)audioFile
-               readAudio:(float *_Nonnull*_Nonnull)buffer
-          withBufferSize:(UInt32)bufferSize
-    withNumberOfChannels:(UInt32)numberOfChannels;
+- (void)     audioFile:(EZAudioFile *)audioFile
+             readAudio:(float **)buffer
+        withBufferSize:(UInt32)bufferSize
+  withNumberOfChannels:(UInt32)numberOfChannels;
 
 //------------------------------------------------------------------------------
 
@@ -69,7 +69,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  Occurs when the audio file's internal seek position has been updated by the EZAudioFile functions `readFrames:audioBufferList:bufferSize:eof:` or `audioFile:updatedPosition:`. As of 0.8.0 this is the preferred method of listening for position updates on the audio file since a user may want the pull the currentTime, formattedCurrentTime, or the frame index from the EZAudioFile instance provided.
  @param audioFile The instance of the EZAudio in which the change occurred.
  */
-- (void)audioFileUpdatedPosition:(nonnull EZAudioFile *)audioFile;
+- (void)audioFileUpdatedPosition:(EZAudioFile *)audioFile;
 
 //------------------------------------------------------------------------------
 
@@ -80,8 +80,8 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @deprecated This property is deprecated starting in version 0.8.0.
  @note Please use `audioFileUpdatedPosition:` property instead.
  */
-- (void)  audioFile:(nonnull EZAudioFile *)audioFile
-    updatedPosition:(SInt64)framePosition  __attribute__((deprecated));
+- (void)audioFile:(EZAudioFile *)audioFile
+  updatedPosition:(SInt64)framePosition  __attribute__((deprecated));
 
 @end
 
@@ -100,7 +100,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
 /**
  A EZAudioFileDelegate for the audio file that is used to return events such as new seek positions within the file and the read audio data as a float array.
  */
-@property (nonatomic, weak, nullable) id<EZAudioFileDelegate> delegate;
+@property (nonatomic, weak) id<EZAudioFileDelegate> delegate;
 
 //------------------------------------------------------------------------------
 #pragma mark - Initialization
@@ -114,7 +114,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param url The file path reference of the audio file as an NSURL.
  @return The newly created EZAudioFile instance. nil if the file path does not exist.
  */
-- (instancetype _Nullable)initWithURL:(nonnull NSURL *)url;
+- (instancetype)initWithURL:(NSURL *)url;
 
 /**
  Creates a new instance of the EZAudioFile using a file path URL with a delegate conforming to the EZAudioFileDelegate protocol.
@@ -122,8 +122,8 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param url The file path reference of the audio file as an NSURL.
  @return The newly created EZAudioFile instance.
  */
-- (instancetype _Nullable)initWithURL:(nonnull NSURL *)url
-                            delegate:(id<EZAudioFileDelegate>_Nullable)delegate;
+- (instancetype)initWithURL:(NSURL *)url
+                   delegate:(id<EZAudioFileDelegate>)delegate;
 
 //------------------------------------------------------------------------------
 
@@ -134,9 +134,9 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param clientFormat An AudioStreamBasicDescription that will be used as the client format on the audio file. For instance, the audio file might be in a 22.5 kHz sample rate format in its file format, but your app wants to read the samples at a sample rate of 44.1 kHz so it can iterate with other components (like a audio processing graph) without any weird playback effects. If this initializer is not used then a non-interleaved float format will be assumed.
  @return The newly created EZAudioFile instance.
  */
-- (instancetype _Nullable)initWithURL:(nonnull NSURL *)url
-                            delegate:(id<EZAudioFileDelegate>_Nullable)delegate
-                        clientFormat:(AudioStreamBasicDescription)clientFormat;
+- (instancetype)initWithURL:(NSURL *)url
+                   delegate:(id<EZAudioFileDelegate>)delegate
+               clientFormat:(AudioStreamBasicDescription)clientFormat;
 
 //------------------------------------------------------------------------------
 #pragma mark - Class Initializers
@@ -150,7 +150,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param url The file path reference of the audio file as an NSURL.
  @return The newly created EZAudioFile instance.
  */
-+ (instancetype _Nullable)audioFileWithURL:(nonnull NSURL *)url;
++ (instancetype)audioFileWithURL:(NSURL *)url;
 
 //------------------------------------------------------------------------------
 
@@ -160,8 +160,8 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param delegate The audio file delegate that receives events specified by the EZAudioFileDelegate protocol
  @return The newly created EZAudioFile instance.
  */
-+ (instancetype _Nullable)audioFileWithURL:(nonnull NSURL *)url
-                                 delegate:(id<EZAudioFileDelegate>_Nullable)delegate;
++ (instancetype)audioFileWithURL:(NSURL *)url
+                        delegate:(id<EZAudioFileDelegate>)delegate;
 
 //------------------------------------------------------------------------------
 
@@ -172,9 +172,9 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param clientFormat An AudioStreamBasicDescription that will be used as the client format on the audio file. For instance, the audio file might be in a 22.5 kHz sample rate, interleaved MP3 file format, but your app wants to read linear PCM samples at a sample rate of 44.1 kHz so it can be read in the context of other components sharing a common stream format (like a audio processing graph). If this initializer is not used then the `defaultClientFormat` will be used as the default value for the client format.
  @return The newly created EZAudioFile instance.
  */
-+ (instancetype _Nullable)audioFileWithURL:(nonnull NSURL *)url
-                                 delegate:(nullable id<EZAudioFileDelegate>)delegate
-                             clientFormat:(AudioStreamBasicDescription)clientFormat;
++ (instancetype)audioFileWithURL:(NSURL *)url
+                        delegate:(id<EZAudioFileDelegate>)delegate
+                    clientFormat:(AudioStreamBasicDescription)clientFormat;
 
 //------------------------------------------------------------------------------
 #pragma mark - Class Methods
@@ -203,7 +203,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  Provides an array of the supported audio files types. Each audio file type is provided as a string, i.e. @"caf". Useful for filtering lists of files in an open panel to only the types allowed.
  @return An array of NSString objects representing the represented file types.
  */
-+ (nonnull NSArray *)supportedAudioFileTypes;
++ (NSArray *)supportedAudioFileTypes;
 
 //------------------------------------------------------------------------------
 #pragma mark - Events
@@ -219,10 +219,10 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param bufferSize      A pointer to a UInt32 in which to store the read buffersize
  @param eof             A pointer to a BOOL in which to store whether the read operation reached the end of the audio file.
  */
-- (void) readFrames:(UInt32)frames
-    audioBufferList:(nonnull AudioBufferList *)audioBufferList
-         bufferSize:(nonnull UInt32 *)bufferSize
-                eof:(nonnull BOOL *)eof;
+- (void)readFrames:(UInt32)frames
+   audioBufferList:(AudioBufferList *)audioBufferList
+        bufferSize:(UInt32 *)bufferSize
+               eof:(BOOL *)eof;
 
 //------------------------------------------------------------------------------
 
@@ -278,14 +278,14 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
 /**
  Provides the current time as an NSString with the time format MM:SS.
  */
-@property (readonly, nonnull) NSString *formattedCurrentTime;
+@property (readonly) NSString *formattedCurrentTime;
 
 //------------------------------------------------------------------------------
 
 /**
  Provides the duration as an NSString with the time format MM:SS.
  */
-@property (readonly, nonnull) NSString *formattedDuration;
+@property (readonly) NSString *formattedDuration;
 
 //------------------------------------------------------------------------------
 
@@ -301,7 +301,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  Provides a dictionary containing the metadata (ID3) tags that are included in the header for the audio file. Typically this contains stuff like artist, title, release year, etc.
  @return An NSDictionary containing the metadata for the audio file.
  */
-@property (readonly, nullable) NSDictionary *metadata;
+@property (readonly) NSDictionary *metadata;
 
 //------------------------------------------------------------------------------
 
@@ -309,7 +309,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  A list of markers associated with the audio file. These are typically embedded within WAVE or AIFF files only.
  @return A NSArray containing the markers in the file. Will be NULL if no markers.
  */
-@property (readwrite, nullable) NSArray *markers;
+@property (readwrite) NSArray *markers;
 
 //------------------------------------------------------------------------------
 
@@ -343,13 +343,13 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  Provides the NSURL for the audio file.
  @return An NSURL representing the path of the EZAudioFile instance.
  */
-@property (nonatomic, copy, readonly, nonnull) NSURL *url;
+@property (nonatomic, copy, readonly) NSURL *url;
 
 /**
  The AudioFileID for this file
  @return An AudioFileID that subclasses can use to derive more information about this audio file.
  */
-@property (readonly, nullable) AudioFileID audioFileID;
+@property (readonly) AudioFileID audioFileID;
 
 //------------------------------------------------------------------------------
 #pragma mark - Helpers
@@ -359,7 +359,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  Synchronously pulls the waveform amplitude data into a float array for the receiver. This returns a waveform with a default resolution of 1024, meaning there are 1024 data points to plot the waveform.
  @return A EZAudioFloatData instance containing the audio data for all channels of the audio.
  */
-- (EZAudioFloatData *_Nullable)getWaveformData;
+- (EZAudioFloatData *)getWaveformData;
 
 //------------------------------------------------------------------------------
 
@@ -368,7 +368,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
   @param numberOfPoints A UInt32 representing the number of data points you need. The higher the number of points the more detailed the waveform will be.
  @return A EZAudioFloatData instance containing the audio data for all channels of the audio.
  */
-- (EZAudioFloatData *_Nullable)getWaveformDataWithNumberOfPoints:(UInt32)numberOfPoints;
+- (EZAudioFloatData *)getWaveformDataWithNumberOfPoints:(UInt32)numberOfPoints;
 
 //------------------------------------------------------------------------------
 
@@ -376,7 +376,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  Asynchronously pulls the waveform amplitude data into a float array for the receiver. This returns a waveform with a default resolution of 1024, meaning there are 1024 data points to plot the waveform.
  @param completion A EZAudioWaveformDataCompletionBlock that executes when the waveform data has been extracted. Provides a `EZAudioFloatData` instance containing the waveform data for all audio channels.
  */
-- (void)getWaveformDataWithCompletionBlock:(EZAudioWaveformDataCompletionBlock _Nullable)completion;
+- (void)getWaveformDataWithCompletionBlock:(EZAudioWaveformDataCompletionBlock)completion;
 
 //------------------------------------------------------------------------------
 
@@ -386,7 +386,7 @@ typedef void (^EZAudioWaveformDataCompletionBlock)(float *_Nullable*_Nullable wa
  @param completion A EZAudioWaveformDataCompletionBlock that executes when the waveform data has been extracted. Provides a `EZAudioFloatData` instance containing the waveform data for all audio channels.
  */
 - (void)getWaveformDataWithNumberOfPoints:(UInt32)numberOfPoints
-                               completion:(EZAudioWaveformDataCompletionBlock _Nullable)completion;
+                               completion:(EZAudioWaveformDataCompletionBlock)completion;
 
 //------------------------------------------------------------------------------
 
