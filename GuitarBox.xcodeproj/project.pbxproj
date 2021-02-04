@@ -37,11 +37,10 @@
 		D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */; };
 		D78E54C51F85522C004E47F1 /* Accord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C41F85522C004E47F1 /* Accord.swift */; };
 		D78F24C12004011700CCF5D2 /* TunerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78F24C02004011700CCF5D2 /* TunerViewController.swift */; };
-		D78F24C32004015900CCF5D2 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78F24C22004015900CCF5D2 /* AudioKit.framework */; };
-		D78F24C42004015900CCF5D2 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D78F24C22004015900CCF5D2 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7A05D20201BCCE70065DFFF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A05D22201BCCE70065DFFF /* InfoPlist.strings */; };
 		D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1A4071FBC8B250091E5E2 /* favorites.swift */; };
 		D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */; };
+		D7D9B52221161E6200AFF6DB /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D9B51A21161BDC00AFF6DB /* AudioKit.framework */; };
 		D7EEC352200915690016ACF3 /* metronome_son_bas.wav in Resources */ = {isa = PBXBuildFile; fileRef = D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */; };
 		D7EEC353200915690016ACF3 /* metronome_son_haut.wav in Resources */ = {isa = PBXBuildFile; fileRef = D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */; };
 		D7F503C81FEC0670001DCF8C /* sons in Resources */ = {isa = PBXBuildFile; fileRef = D7F503C61FEC05DA001DCF8C /* sons */; };
@@ -58,13 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D78F24C52004015900CCF5D2 /* Embed Frameworks */ = {
+		D7D9B52121161CF100AFF6DB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D78F24C42004015900CCF5D2 /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,12 +104,12 @@
 		D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordTableViewCell.swift; sourceTree = "<group>"; };
 		D78E54C41F85522C004E47F1 /* Accord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accord.swift; sourceTree = "<group>"; };
 		D78F24C02004011700CCF5D2 /* TunerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunerViewController.swift; sourceTree = "<group>"; };
-		D78F24C22004015900CCF5D2 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		D7A05D21201BCCE70065DFFF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7A05D23201BCCEC0065DFFF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7A05D25201BCE820065DFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		D7A1A4071FBC8B250091E5E2 /* favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favorites.swift; sourceTree = "<group>"; };
 		D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		D7D9B51A21161BDC00AFF6DB /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_son_haut.wav; sourceTree = "<group>"; };
 		D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_son_bas.wav; sourceTree = "<group>"; };
 		D7F503C61FEC05DA001DCF8C /* sons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sons; sourceTree = "<group>"; };
@@ -122,9 +120,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D9B52221161E6200AFF6DB /* AudioKit.framework in Frameworks */,
 				D71903F81FD1E77A001A3AC7 /* SystemConfiguration.framework in Frameworks */,
 				D71903F61FD1E769001A3AC7 /* StoreKit.framework in Frameworks */,
-				D78F24C32004015900CCF5D2 /* AudioKit.framework in Frameworks */,
 				D71903F41FD1E758001A3AC7 /* MessageUI.framework in Frameworks */,
 				D71903F21FD1E744001A3AC7 /* CoreMedia.framework in Frameworks */,
 				D71903F01FD1E735001A3AC7 /* CoreTelephony.framework in Frameworks */,
@@ -170,7 +168,7 @@
 		D7763D3B1F8509DA007AE885 = {
 			isa = PBXGroup;
 			children = (
-				D78F24C22004015900CCF5D2 /* AudioKit.framework */,
+				D7D9B51A21161BDC00AFF6DB /* AudioKit.framework */,
 				D7763D461F8509DB007AE885 /* ChordRef */,
 				D7763D5B1F8509DB007AE885 /* ChordRefTests */,
 				D7763D451F8509DB007AE885 /* Products */,
@@ -237,8 +235,7 @@
 				D7763D401F8509DB007AE885 /* Sources */,
 				D7763D411F8509DB007AE885 /* Frameworks */,
 				D7763D421F8509DB007AE885 /* Resources */,
-				D78F24C52004015900CCF5D2 /* Embed Frameworks */,
-				D793EC6B200FA2EA0098AAF2 /* ShellScript */,
+				D7D9B52121161CF100AFF6DB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,7 +271,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Benoit Lord";
 				TargetAttributes = {
 					D7763D431F8509DB007AE885 = {
@@ -334,22 +331,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D793EC6B200FA2EA0098AAF2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D7763D401F8509DB007AE885 /* Sources */ = {
@@ -443,6 +424,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -450,6 +432,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -501,6 +484,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -508,6 +492,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -551,6 +536,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ChordRef/Base.lproj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -572,6 +558,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ChordRef/Base.lproj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

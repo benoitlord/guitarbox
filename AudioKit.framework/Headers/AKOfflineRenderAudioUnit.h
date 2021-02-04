@@ -2,8 +2,8 @@
 //  AKOfflineRenderAudioUnit.h
 //  AudioKit
 //
-//  Created by David O'Neill on 8/7/17.
-//  Copyright © 2017 AudioKit. All rights reserved.
+//  Created by David O'Neill, revision history on GitHub.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 #pragma once

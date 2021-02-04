@@ -3,7 +3,7 @@
 //  AudioKit
 //
 //  Created by Aurelius Prochazka, revision history on Github.
-//  Copyright © 2017 Aurelius Prochazka. All rights reserved.
+//  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 
@@ -22,8 +22,8 @@
 
 - (void)start;
 - (void)stop;
-- (BOOL)isPlaying;
-- (BOOL)isSetUp;
+@property (readonly) BOOL isPlaying;
+@property (readonly) BOOL isSetUp;
 
 @property double rampTime;
 

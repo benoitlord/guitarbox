@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kL9-vq-Wd9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kL9-vq-Wd9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -455,7 +455,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Aiguille" translatesAutoresizingMaskIntoConstraints="NO" id="wbk-c0-uef">
-                                <rect key="frame" x="177.5" y="176" width="20" height="450"/>
+                                <rect key="frame" x="177.5" y="175.5" width="20" height="450"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wbk-c0-uef" secondAttribute="height" multiplier="2:45" id="xZ8-BX-6Jk"/>
                                 </constraints>
@@ -480,13 +480,13 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMb-ED-0z5">
-                                <rect key="frame" x="184.5" y="99" width="6" height="34"/>
+                                <rect key="frame" x="184.5" y="99" width="6" height="33.5"/>
                                 <fontDescription key="fontDescription" name="Mukta-Regular" family="Mukta" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb3-Xg-HKJ">
-                                <rect key="frame" x="183" y="383" width="9" height="50"/>
+                                <rect key="frame" x="183.5" y="382.5" width="8.5" height="50"/>
                                 <fontDescription key="fontDescription" name="Mukta-Bold" family="Mukta" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

@@ -48,14 +48,20 @@ class AboutViewController: UIViewController, UITextViewDelegate {
         case "en", "en-US", "en-GB", "en-AU":
             mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 86/255, green:39/255, blue:7/255, alpha: 1), range: NSRange(location: 284, length: 19))
             mutableString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1, range: NSRange(location: 284, length: 19))
+            mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 86/255, green:39/255, blue:7/255, alpha: 1), range: NSRange(location: 344, length: 16))
+            mutableString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1, range: NSRange(location: 344, length: 16))
             break
         case "fr", "fr-CA", "fr-FR":
             mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red:86/255, green:39/255, blue:7/255, alpha: 1), range: NSRange(location: 354, length: 19))
             mutableString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1, range: NSRange(location: 354, length: 19))
+            mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red:86/255, green:39/255, blue:7/255, alpha: 1), range: NSRange(location: 430, length: 16))
+            mutableString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1, range: NSRange(location: 430, length: 16))
             break
         default:
             mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red:86/255, green:39/255, blue:7/255, alpha: 1), range: NSRange(location: 284, length: 19))
             mutableString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1, range: NSRange(location: 284, length: 19))
+            mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 86/255, green:39/255, blue:7/255, alpha: 1), range: NSRange(location: 344, length: 16))
+            mutableString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1, range: NSRange(location: 344, length: 16))
             break
         }
         test.attributedText = mutableString

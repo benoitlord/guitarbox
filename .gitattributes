@@ -1,0 +1,6 @@
+*.framework filter=lfs diff=lfs merge=lfs -text
+AudioKit.framework/Modules filter=lfs diff=lfs merge=lfs -text
+AudioKit.framework/_CodeSignature filter=lfs diff=lfs merge=lfs -text
+AudioKit.framework/AudioKit filter=lfs diff=lfs merge=lfs -text
+AudioKit.framework/Headers filter=lfs diff=lfs merge=lfs -text
+AudioKit.framework/Info.plist filter=lfs diff=lfs merge=lfs -text
