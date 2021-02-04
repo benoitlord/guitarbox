@@ -10,7 +10,7 @@ import UIKit
 
 class AccordTableViewCell: UITableViewCell {
     
-    //MARK: Properties
+    //MARK: Propriétés
     
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var imageAccord: UIImageView!

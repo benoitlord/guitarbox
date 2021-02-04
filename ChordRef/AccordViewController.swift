@@ -9,72 +9,57 @@
 import UIKit
 
 class AccordViewController: UIViewController {
-
+    
+    //MARK: Propriétés
     var bonAccord: Accord?
     var favorite:Bool?
     
-    //MARK: Outlets
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var imageAccord: UIImageView!
     @IBOutlet weak var boutonFavoris: BoutonFavoris!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        // Recevoir les infos de la tableview
         if let accord = bonAccord {
             navigationItem.title = accord.name
             imageAccord.image = accord.photo
             nom.text = accord.name
         }
         
+        //Sélectionner le bouton des favoris si l'accord est dans les favoris
         if favorite! {
-            
             boutonFavoris.isSelected = true
         }
     }
     
-    @IBAction func buttonPressed(_ sender: BoutonFavoris) {
-        if !sender.isSelected {
-            sender.isSelected = true
-            favorite = true
-        }
-        else{
-            sender.isSelected = false
-            favorite = false
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    // This method lets you configure a view controller before it's presented.
+    // Pour passer l'info entre les scènes
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         super.prepare(for: segue, sender: sender)
         
+        //Pour ajouter/retirer l'accord des favoris si on clique sur le bouton
         let name = nom.text ?? ""
         let image = imageAccord.image
         
         bonAccord = Accord(name: name, photo: image!, favoris: false)
         
-        /*guard let tableAccord = segue.destination as? AccordTableViewController else {
-            fatalError("erreur")
-        }*/
-    
+        //Modifie les données de l'app en fonction
         if favorite! {
             let defaults = UserDefaults.standard
             var favorites = defaults.array(forKey: defaultsKeys.favorites) as? [String]
             
-            if let abc = favorites as? [String]{
+            if favorites != nil {
                 favorites?.append(bonAccord!.name)
             }
             else {
-                favorites = [bonAccord!.name]
+                favorites = [(bonAccord?.name)!]
             }
-            //let favoritesData = NSKeyedArchiver.archivedData(withRootObject: favorites) as? NSData
+            
             defaults.set(favorites, forKey: defaultsKeys.favorites)
         }
         else {
@@ -83,10 +68,22 @@ class AccordViewController: UIViewController {
             
             let index = favorites?.index(of: bonAccord!.name)
             favorites?.remove(at: index!)
-            //favorites = favorites?.filter { $0 != bonAccord?.name }
             
-            //let favoritesData = NSKeyedArchiver.archivedData(withRootObject: favorites) as? NSData
             defaults.set(favorites, forKey: defaultsKeys.favorites)
+        }
+    }
+    
+    //MARK: Actions
+    
+    //Lorsqu'on clique sur le bouton favoris
+    @IBAction func buttonPressed(_ sender: BoutonFavoris) {
+        if !sender.isSelected {
+            sender.isSelected = true
+            favorite = true
+        }
+        else{
+            sender.isSelected = false
+            favorite = false
         }
     }
 }

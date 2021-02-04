@@ -8,20 +8,17 @@
 
 import UIKit
 
+//Classe qui permet de créer le bouton des favoris
 @IBDesignable class BoutonFavoris: UIButton {
     
-    //MARK: properties
-    
+    //MARK: Propriétés
     @IBInspectable var size: CGSize = CGSize(width: 50.0, height: 50.0) {
         didSet{
             setupButton()
         }
     }
     
-    var favorites = [Accord]()
-    
-    //MARK: Initialization
-    
+    //MARK: Initialisation
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
@@ -32,17 +29,9 @@ import UIKit
         setupButton()
     }
     
-    //MARK: Button Action
+    //MARK: Fonctions privées
     
-    /*@objc func buttonTapped (sender: BoutonFavoris) {
-        if !self.isSelected {
-            self.isSelected = true
-        }
-        else{
-            self.isSelected = false
-        }
-    }*/
-    
+    //Configure le bouton
     private func setupButton() {
         let bundle = Bundle(for: type(of: self))
         let FavorisImage = UIImage(named: "AddFavoris", in: bundle, compatibleWith: self.traitCollection)
@@ -50,8 +39,6 @@ import UIKit
         
         self.setImage(FavorisImage, for: .normal)
         self.setImage(FavorisImageSelected, for: .selected)
-        
-        //self.addTarget(self, action: #selector(self.buttonTapped(sender: )), for: .touchUpInside)
     }
 
 }

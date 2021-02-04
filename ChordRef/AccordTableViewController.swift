@@ -11,11 +11,10 @@ import UIKit
 
 class AccordTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate{
     
-    //MARK: Properties
+    //MARK: Propriétés
     
     var unfilteredAccords = [Accord]()
     var filteredAccords = [Accord]()
-    //var favorites = [Accord?]()
     
     var favorites = defaults.object(forKey: defaultsKeys.favorites) as? [String]
     var favorites2 = [Accord]()
@@ -25,55 +24,67 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewDidLoad() {
         
+        //Setup du searchController
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Rechercher"
         searchController.searchBar.setValue("Annuler", forKey:"_cancelButtonText")
         
+        //Fonctions à ajouter si l'utilisateur utilise iOS 11
         if #available (iOS 11, *){
-            self.navigationItem.searchController = searchController
             
+            //Met la search bar dans la navbar
+            self.navigationItem.searchController = searchController
             searchController.searchBar.searchBarStyle = .default
             searchController.searchBar.tintColor = UIColor.white
             searchController.searchBar.barTintColor = UIColor.white
             
+            //Changer l'apparence de la search bar
             for subView in searchController.searchBar.subviews {
-                
                 for subViewOne in subView.subviews {
-                    
                     if let textField = subViewOne as? UITextField {
                         
-                        textField.textColor = UIColor.white
+                        //Couleur du texte dans la search bar ???
+                        //textField.textColor = UIColor.white
                         
-                        //use the code below if you want to change the color of placeholder
+                        //Couleur du placeholder de la search bar
                         let textFieldInsideUISearchBarLabel = textField.value(forKey: "placeholderLabel") as? UILabel
                         textFieldInsideUISearchBarLabel?.textColor = UIColor.white
                     }
                 }
             }
             
+            //Couleur du texte dans la search bar
             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
             
+            //Changer le placeholder de "Search" à "Rechercher"
             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Rechercher", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
             
+            //Changer les images pour l'icône de recherche et pour effacer
             searchController.searchBar.setImage(UIImage(named: "clear"), for: UISearchBarIcon.clear, state: .normal)
             searchController.searchBar.setImage(UIImage(named: "search"), for: UISearchBarIcon.search, state: .normal)
             
         }
+            
+        //Si l'utilisateur n'utilise pas iOS 11
         else{
             tableView.tableHeaderView = searchController.searchBar
         }
         
-        super.viewDidLoad()
-        
+        //Met à jour les résultat de la recherche
         updateSearchResults(for: searchController)
         
+        //Empêche d'afficher le bouton de retour lorsqu'on revient en ajoutant/retirant un accord dans les favoris
         self.navigationItem.hidesBackButton = true
+        
+        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Permet d'afficher la search bar quand l'application ouvre
         if #available(iOS 11.0, *) {
             self.navigationItem.hidesSearchBarWhenScrolling = false
         }
@@ -81,6 +92,8 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //Permet d'afficher la search bar quand l'application ouvre
         if #available(iOS 11.0, *) {
             self.navigationItem.hidesSearchBarWhenScrolling = true
         }
@@ -88,6 +101,8 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        //Enlève la search bar quand on quitte la tableview
         searchController.dismiss(animated: false, completion: nil)
     }
 
@@ -96,28 +111,27 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
+    // MARK: Sources de données de la tableview
+    
+    //Dit le nombre de section de la tableview
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
+    //Dit le nombre de rangées de les sections de la tableview
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return filteredAccords.count
     }
     
+    //Ajoute l'information dans chaque cellule de la tableview
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "AccordTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AccordTableViewCell else {
             fatalError("The dequeued cell is not an instance of AccordTableViewCell.")
         }
         
-        // Fetches the appropriate chord for the data source layout.
         let accord = filteredAccords[indexPath.row]
         
         cell.nom.text = accord.name
@@ -172,29 +186,35 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Pour passer l'info entre les scènes
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         super.prepare(for: segue, sender: sender)
         
         if segue.identifier == "ShowDetail" {
+            
+            //Va chercher la scène des details de l'accord
             guard let AccordDetailsViewController = segue.destination as? AccordViewController else {
                 fatalError("Unexpected destination: \(String(describing: type(of:segue.destination)))")
             }
             
+            //Va chercher la cellule sur laquelle on a cliqué
             guard let selectedAccordCell = sender as? AccordTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
+            //Va chercher l'identifiant de la cellule
             guard let indexPath = tableView.indexPath(for: selectedAccordCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
+            //Envoie l'accord contenu dans la cellule à l'autre scène
             let selectedAccord = filteredAccords[indexPath.row]
             AccordDetailsViewController.bonAccord = selectedAccord
             
+            //Dit à l'autre scène si l'accord est dans les favoris
             AccordDetailsViewController.favorite = false
-            if let abc = favorites as? [String] {
+            if favorites != nil {
                 for accord in favorites! {
                     if accord == selectedAccord.name {
                         AccordDetailsViewController.favorite = true
@@ -203,13 +223,14 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             }
         }
         else {
-            fatalError("Mauvaise segue")
+            //fatalError("Mauvaise segue")
         }
     }
     
     
-    //MARK Private Methods
+    //MARK: Methodes privées
     
+    //Load tous les accords
     private func loadAccords(){
         let cImage = UIImage(named: "CImage")
         let c7Image = UIImage(named: "C7Image")
@@ -263,197 +284,151 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         guard let accordC = Accord(name: "C", photo: cImage!, favoris: false) else {
             fatalError("Unable to instantiate accordC")
         }
-        
         guard let accordC7 = Accord(name: "C7", photo: c7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordC7")
         }
-        
         guard let accordC_D = Accord(name: "C#/Db", photo: c_dImage!, favoris: false) else {
             fatalError("Unable to instantiate accordC_D")
         }
-        
         guard let accordC_D7 = Accord(name: "C#7/Db7", photo: c_d7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordC_D7")
         }
-        
         guard let accordD = Accord(name: "D", photo: dImage!, favoris: false) else {
             fatalError("Unable to instantiate accordD")
         }
-        
         guard let accordD7 = Accord(name: "D7", photo: d7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordD7")
         }
-        
         guard let accordD_E = Accord(name: "D#/Eb", photo: d_eImage!, favoris: false) else {
             fatalError("Unable to instantiate accordD_E")
         }
-        
         guard let accordD_E7 = Accord(name: "D#7/Eb7", photo: d_e7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordD_E7")
         }
-        
         guard let accordE = Accord(name: "E", photo: eImage!, favoris: false) else {
             fatalError("Unable to instantiate accordE")
         }
-        
         guard let accordE7 = Accord(name: "E7", photo: e7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordE7")
         }
-        
         guard let accordF = Accord(name: "F", photo: fImage!, favoris: false) else {
             fatalError("Unable to instantiate accordF")
         }
-        
         guard let accordF7 = Accord(name: "F7", photo: f7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordF7")
         }
-        
         guard let accordF_G = Accord(name: "F#/Gb", photo: f_gImage!, favoris: false) else {
             fatalError("Unable to instantiate accordF_G")
         }
-        
         guard let accordF_G7 = Accord(name: "F#7/Gb7", photo: f_g7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordF_G7")
         }
-        
         guard let accordG = Accord(name: "G", photo: gImage!, favoris: false) else {
             fatalError("Unable to instantiate accordG")
         }
-        
         guard let accordG7 = Accord(name: "G7", photo: g7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordG7")
         }
-        
         guard let accordG_A = Accord(name: "G#/Ab", photo: g_aImage!, favoris: false) else {
             fatalError("Unable to instantiate accordG_A")
         }
-        
         guard let accordG_A7 = Accord(name: "G#7/Ab7", photo: g_a7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordG_A7")
         }
-        
         guard let accordA = Accord(name: "A", photo: aImage!, favoris: false) else {
             fatalError("Unable to instantiate accordA")
         }
-        
         guard let accordA7 = Accord(name: "A7", photo: a7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordA7")
         }
-        
         guard let accordA_B = Accord(name: "A#/Bb", photo: a_bImage!, favoris: false) else {
             fatalError("Unable to instantiate accordA_B")
         }
-        
         guard let accordA_B7 = Accord(name: "A#7/Bb7", photo: a_b7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordA_B7")
         }
-        
         guard let accordB = Accord(name: "B", photo: bImage!, favoris: false) else {
             fatalError("Unable to instantiate accordB")
         }
-        
         guard let accordB7 = Accord(name: "B7", photo: b7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordB7")
         }
-        
         guard let accordC_min = Accord(name: "C min", photo: c_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordC_min")
         }
-        
         guard let accordC_min7 = Accord(name: "C min7", photo: c_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordC_min7")
         }
-        
         guard let accordC_D_min = Accord(name: "C#/Db min", photo: c_d_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordC_D_min")
         }
-        
         guard let accordC_D_min7 = Accord(name: "C#/Db min7", photo: c_d_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordC_D_min7")
         }
-        
         guard let accordD_min = Accord(name: "D min", photo: d_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordD_min")
         }
-        
         guard let accordD_min7 = Accord(name: "D min7", photo: d_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordD_min7")
         }
-        
         guard let accordD_E_min = Accord(name: "D#/Eb min", photo: d_e_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordD_E_min")
         }
-        
         guard let accordD_E_min7 = Accord(name: "D#/Eb min7", photo: d_e_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordD_E_min7")
         }
-        
         guard let accordE_min = Accord(name: "E min", photo: e_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordE_min")
         }
-        
         guard let accordE_min7 = Accord(name: "E min7", photo: e_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordE_min7")
         }
-        
         guard let accordF_min = Accord(name: "F min", photo: f_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordF_min")
         }
-        
         guard let accordF_min7 = Accord(name: "F min7", photo: f_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordF_min7")
         }
-        
         guard let accordF_G_min = Accord(name: "F#/Gb min", photo: f_g_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordF_G_min")
         }
-        
         guard let accordF_G_min7 = Accord(name: "F#/Gb min7", photo: f_g_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordF_G_min7")
         }
-        
         guard let accordG_min = Accord(name: "G min", photo: g_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordG_min")
         }
-        
         guard let accordG_min7 = Accord(name: "G min7", photo: g_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordG_min7")
         }
-        
         guard let accordG_A_min = Accord(name: "G#/Ab min", photo: g_a_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordG_A_min")
         }
-        
         guard let accordG_A_min7 = Accord(name: "G#/Ab min7", photo: g_a_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordG_A_min7")
         }
-        
         guard let accordA_min = Accord(name: "A min", photo: a_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordA_min")
         }
-        
         guard let accordA_min7 = Accord(name: "A min7", photo: a_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordA_min7")
         }
-        
         guard let accordA_B_min = Accord(name: "A#/Bb min", photo: a_b_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordA_B_min")
         }
-        
         guard let accordA_B_min7 = Accord(name: "A#/Bb min7", photo: a_b_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordA_B_min7")
         }
-        
         guard let accordB_min = Accord(name: "B min", photo: b_minImage!, favoris: false) else {
             fatalError("Unable to instantiate accordB_min")
         }
-        
         guard let accordB_min7 = Accord(name: "B min7", photo: b_min7Image!, favoris: false) else {
             fatalError("Unable to instantiate accordB_min7")
         }
         
         unfilteredAccords = [accordC, accordC7, accordC_D, accordC_D7, accordD, accordD7, accordD_E, accordD_E7, accordE, accordE7, accordF, accordF7, accordF_G, accordF_G7, accordG, accordG7, accordG_A, accordG_A7, accordA, accordA7, accordA_B, accordA_B7, accordB, accordB7, accordC_min, accordC_min7, accordC_D_min, accordC_D_min7, accordD_min, accordD_min7, accordD_E_min, accordD_E_min7, accordE_min, accordE_min7, accordF_min, accordF_min7, accordF_G_min, accordF_G_min7, accordG_min, accordG_min7, accordG_A_min, accordG_A_min7, accordA_min, accordA_min7, accordA_B_min, accordA_B_min7, accordB_min, accordB_min7]
         
+        //Ajoutes les accord favoris aux tableau des favoris
         favorites = defaults.object(forKey: defaultsKeys.favorites) as? [String]
         if add {
             if favorites != nil {
@@ -472,6 +447,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     
     //MARK: Search Bar
     
+    //Met à jour les infos de recherche quand on écrit dans la search bar
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredAccords = unfilteredAccords.filter { accord in
@@ -480,14 +456,11 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         else{
             loadAccords()
-            if let abc = favorites2 as? [Accord] {
-                loadAccords()
-                filteredAccords = favorites2 + unfilteredAccords
-            }
-            else{
-                filteredAccords = unfilteredAccords
-            }
+            loadAccords()
+            filteredAccords = favorites2 + unfilteredAccords
         }
+        
+        //Reload la tableview
         tableView.reloadData()
     }
 

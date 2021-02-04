@@ -8,7 +8,10 @@
 
 import UIKit
 
+//Classe qui crée le navigationcontroller personalisé
 class CustomNavigationController: UINavigationController, UISearchBarDelegate {
+    
+    //MARK: Propriétés
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -20,18 +23,19 @@ class CustomNavigationController: UINavigationController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         
+        //Change la couleur du texte de la navbar
         self.navigationBar.tintColor = UIColor.white
+        
+        //Permet d'afficher la status bar en blanc
         self.navigationBar.barStyle = UIBarStyle.black
         
+        //Change la police
         let newFont = UIFont(name: "Mukta", size: 20.0)!
         let color = UIColor.white
         
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.font: newFont], for: .normal)
         
-        /*self.navigationBar.layer.shadowColor = UIColor.black.cgColor;
-        self.navigationBar.layer.shadowRadius = 4.0;
-        self.navigationBar.layer.shadowOpacity = 1.0;*/
-        
+        //Met les titres grand formats d'iOS 11 s'il est utilisé
         if #available(iOS 11.0, *) {
             self.navigationBar.prefersLargeTitles = true
         }

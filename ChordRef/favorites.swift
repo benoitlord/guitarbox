@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Pour permettre de sauvegarder les favoris dans les données de l'app
 struct defaultsKeys {
     static let favorites = "favorites"
 }

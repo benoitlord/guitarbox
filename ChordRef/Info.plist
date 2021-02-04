@@ -48,7 +48,7 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>home</key>
+	<key>LSApplicationCategoryType</key>
 	<string></string>
 </dict>
 </plist>
