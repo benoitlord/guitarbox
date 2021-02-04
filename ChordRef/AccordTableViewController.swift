@@ -22,6 +22,10 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     
     let searchController = UISearchController(searchResultsController: nil)
     
+    @IBAction func BackToMenu(_ sender: Any) {
+        performSegue(withIdentifier: "BackToMenu", sender: self)
+    }
+    
     override func viewDidLoad() {
         
         //Setup du searchController

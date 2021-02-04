@@ -22,6 +22,9 @@
 		D71903F81FD1E77A001A3AC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71903F71FD1E773001A3AC7 /* SystemConfiguration.framework */; };
 		D723646A1FA0E80100DA6A50 /* Mukta-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */; };
 		D723646B1FA0E80500DA6A50 /* Mukta-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */; };
+		D76632751FF96F2A00CF6949 /* AccordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76632741FF96F2A00CF6949 /* AccordTableViewController.swift */; };
+		D76632781FF9700900CF6949 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76632761FF9700900CF6949 /* MenuTableViewController.swift */; };
+		D76632791FF9700900CF6949 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76632771FF9700900CF6949 /* MenuTableViewCell.swift */; };
 		D7763D481F8509DB007AE885 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7763D471F8509DB007AE885 /* AppDelegate.swift */; };
 		D7763D4A1F8509DB007AE885 /* AccordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7763D491F8509DB007AE885 /* AccordViewController.swift */; };
 		D7763D4D1F8509DB007AE885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7763D4B1F8509DB007AE885 /* Main.storyboard */; };
@@ -31,7 +34,6 @@
 		D784E4F31FE458C500044EA9 /* BoutonSon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D784E4F21FE458C400044EA9 /* BoutonSon.swift */; };
 		D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */; };
 		D78E54C51F85522C004E47F1 /* Accord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C41F85522C004E47F1 /* Accord.swift */; };
-		D78E54C71F85535B004E47F1 /* AccordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */; };
 		D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1A4071FBC8B250091E5E2 /* favorites.swift */; };
 		D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */; };
 		D7F503C81FEC0670001DCF8C /* sons in Resources */ = {isa = PBXBuildFile; fileRef = D7F503C61FEC05DA001DCF8C /* sons */; };
@@ -63,6 +65,9 @@
 		D71903F71FD1E773001A3AC7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Regular.ttf"; sourceTree = "<group>"; };
 		D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Bold.ttf"; sourceTree = "<group>"; };
+		D76632741FF96F2A00CF6949 /* AccordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccordTableViewController.swift; sourceTree = "<group>"; };
+		D76632761FF9700900CF6949 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		D76632771FF9700900CF6949 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		D7763D441F8509DB007AE885 /* ChordRef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordRef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7763D471F8509DB007AE885 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7763D491F8509DB007AE885 /* AccordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		D784E4F21FE458C400044EA9 /* BoutonSon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoutonSon.swift; sourceTree = "<group>"; };
 		D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordTableViewCell.swift; sourceTree = "<group>"; };
 		D78E54C41F85522C004E47F1 /* Accord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accord.swift; sourceTree = "<group>"; };
-		D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordTableViewController.swift; sourceTree = "<group>"; };
 		D7A1A4071FBC8B250091E5E2 /* favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favorites.swift; sourceTree = "<group>"; };
 		D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		D7F503C61FEC05DA001DCF8C /* sons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sons; sourceTree = "<group>"; };
@@ -159,11 +163,13 @@
 				D7763D491F8509DB007AE885 /* AccordViewController.swift */,
 				D7A1A4071FBC8B250091E5E2 /* favorites.swift */,
 				D78E54C41F85522C004E47F1 /* Accord.swift */,
-				D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */,
+				D76632741FF96F2A00CF6949 /* AccordTableViewController.swift */,
 				D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */,
 				D7763D671F851CAA007AE885 /* BoutonFavoris.swift */,
 				D784E4F21FE458C400044EA9 /* BoutonSon.swift */,
 				D7763D4B1F8509DB007AE885 /* Main.storyboard */,
+				D76632771FF9700900CF6949 /* MenuTableViewCell.swift */,
+				D76632761FF9700900CF6949 /* MenuTableViewController.swift */,
 				D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */,
 				D7763D4E1F8509DB007AE885 /* Assets.xcassets */,
 				D7F503C61FEC05DA001DCF8C /* sons */,
@@ -289,7 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7763D681F851CAA007AE885 /* BoutonFavoris.swift in Sources */,
-				D78E54C71F85535B004E47F1 /* AccordTableViewController.swift in Sources */,
+				D76632751FF96F2A00CF6949 /* AccordTableViewController.swift in Sources */,
+				D76632791FF9700900CF6949 /* MenuTableViewCell.swift in Sources */,
+				D76632781FF9700900CF6949 /* MenuTableViewController.swift in Sources */,
 				D7763D4A1F8509DB007AE885 /* AccordViewController.swift in Sources */,
 				D7763D481F8509DB007AE885 /* AppDelegate.swift in Sources */,
 				D78E54C51F85522C004E47F1 /* Accord.swift in Sources */,
