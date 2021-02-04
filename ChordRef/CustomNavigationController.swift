@@ -33,7 +33,7 @@ class CustomNavigationController: UINavigationController, UISearchBarDelegate {
         let newFont = UIFont(name: "Mukta", size: 20.0)!
         let color = UIColor.white
         
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.font: newFont], for: .normal)
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: newFont], for: .normal)
         
         //Met les titres grand formats d'iOS 11 s'il est utilisé
         if #available(iOS 11.0, *) {

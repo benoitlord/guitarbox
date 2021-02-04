@@ -2204,7 +2204,7 @@ SWIFT_CLASS("_TtC8AudioKit9AKFlanger")
 @property (nonatomic) double depth;
 /// Feedback (fraction)
 @property (nonatomic) double feedback;
-/// Dry Wet Mix (fraction)
+/// Dry Wet Mix - Traditionally 50% for a flanger, avoid changing this value
 @property (nonatomic) double dryWetMix;
 /// Tells whether the node is processing (ie. started, playing, or active)
 @property (nonatomic, readonly) BOOL isStarted;
@@ -2217,7 +2217,7 @@ SWIFT_CLASS("_TtC8AudioKit9AKFlanger")
 ///
 /// \param feedback feedback fraction
 ///
-/// \param dryWetMix fraction of wet signal in mix
+/// \param dryWetMix fraction of wet signal in mix  - traditionally 50%, avoid changing this value
 ///
 - (nonnull instancetype)init:(AKNode * _Nullable)input frequency:(double)frequency depth:(double)depth feedback:(double)feedback dryWetMix:(double)dryWetMix OBJC_DESIGNATED_INITIALIZER;
 /// Function to start, play, or activate the node, all do the same thing

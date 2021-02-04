@@ -72,14 +72,14 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             }
             
             //Couleur du texte dans la search bar
-            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = convertToNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue: UIColor.white])
             
             //Changer le placeholder de "Search" à "Rechercher"
-            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Rechercher", comment: ""), attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Rechercher", comment: ""), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             
             //Changer les images pour l'icône de recherche et pour effacer
-            searchController.searchBar.setImage(UIImage(named: "clear"), for: UISearchBarIcon.clear, state: .normal)
-            searchController.searchBar.setImage(UIImage(named: "search"), for: UISearchBarIcon.search, state: .normal)
+            searchController.searchBar.setImage(UIImage(named: "clear"), for: UISearchBar.Icon.clear, state: .normal)
+            searchController.searchBar.setImage(UIImage(named: "search"), for: UISearchBar.Icon.search, state: .normal)
             
             //Localization
             self.navigationItem.title = NSLocalizedString("Livre d'accords", comment: "")
@@ -539,4 +539,9 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         tableView.reloadData()
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

@@ -37,7 +37,8 @@ class TunerViewController: UIViewController, GADBannerViewDelegate {
     var timer: Timer?
     
     //Microphone Tracker
-    let micro = AKMicrophoneTracker()
+    let micro = AKMicrophone()
+    var tracker: AKFrequencyTracker? = nil
     
     //Outlets
     @IBOutlet weak var noteLabel: UILabel!
@@ -62,8 +63,19 @@ class TunerViewController: UIViewController, GADBannerViewDelegate {
         //Pour enlever le bouton Back
         self.navigationItem.hidesBackButton = true
         
+        tracker = AKFrequencyTracker(micro)
+        let silence = AKBooster(tracker, gain: 0)
+        
         //Démarre le Microphone Tracker
+        AudioKit.output = silence
+        do{
+            try AudioKit.start()
+        }
+        catch{
+            print("AudioKit did not start!")
+        }
         micro.start()
+        tracker!.start()
         
         //Timer qui répète la fonction updateTuner() à chaque 0.1 seconde
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTuner), userInfo: nil, repeats: true)
@@ -113,8 +125,8 @@ class TunerViewController: UIViewController, GADBannerViewDelegate {
     @objc func updateTuner() {
         
         //Donnée trouvées par le micro
-        let frequence = micro.frequency
-        let amplitude = micro.amplitude
+        let frequence = tracker!.frequency
+        let amplitude = tracker!.amplitude
         
         //Arrondie la fréquence
         let frequenceArrondie = frequence.rounded(toPlaces: 1)

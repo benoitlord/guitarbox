@@ -111,7 +111,7 @@ class AccordViewController: UIViewController, GADBannerViewDelegate, AVAudioPlay
         guard let url = Bundle.main.url(forResource: "sons/\(bonAccord?.son ?? "son")", withExtension: "wav") else { print ("le fichier n'existe pas"); return }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)), mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
             
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
@@ -186,3 +186,8 @@ class AccordViewController: UIViewController, GADBannerViewDelegate, AVAudioPlay
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
+}

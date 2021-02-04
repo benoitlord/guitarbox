@@ -24,6 +24,7 @@
 		D723646A1FA0E80100DA6A50 /* Mukta-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */; };
 		D723646B1FA0E80500DA6A50 /* Mukta-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */; };
 		D7358D77200E9DC700F5D4F5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7358D76200E9DC700F5D4F5 /* AboutViewController.swift */; };
+		D75BF30C2173C77F0073069D /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */; };
 		D75D4B7820041BAA00DE5CA3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D4B7720041BAA00DE5CA3 /* MenuViewController.swift */; };
 		D76632751FF96F2A00CF6949 /* AccordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76632741FF96F2A00CF6949 /* AccordTableViewController.swift */; };
 		D76A65DD201A61D300F5C568 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D76A65DF201A61D300F5C568 /* Localizable.strings */; };
@@ -37,7 +38,6 @@
 		D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */; };
 		D78E54C51F85522C004E47F1 /* Accord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C41F85522C004E47F1 /* Accord.swift */; };
 		D78F24C12004011700CCF5D2 /* TunerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78F24C02004011700CCF5D2 /* TunerViewController.swift */; };
-		D79BD87A217388F400C0CA67 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D9B51A21161BDC00AFF6DB /* AudioKit.framework */; };
 		D7A05D20201BCCE70065DFFF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A05D22201BCCE70065DFFF /* InfoPlist.strings */; };
 		D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1A4071FBC8B250091E5E2 /* favorites.swift */; };
 		D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */; };
@@ -109,7 +109,7 @@
 		D7A05D25201BCE820065DFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		D7A1A4071FBC8B250091E5E2 /* favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favorites.swift; sourceTree = "<group>"; };
 		D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
-		D7D9B51A21161BDC00AFF6DB /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_son_haut.wav; sourceTree = "<group>"; };
 		D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_son_bas.wav; sourceTree = "<group>"; };
 		D7F503C61FEC05DA001DCF8C /* sons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sons; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D79BD87A217388F400C0CA67 /* AudioKit.framework in Frameworks */,
+				D75BF30C2173C77F0073069D /* AudioKit.framework in Frameworks */,
 				D71903F81FD1E77A001A3AC7 /* SystemConfiguration.framework in Frameworks */,
 				D71903F61FD1E769001A3AC7 /* StoreKit.framework in Frameworks */,
 				D71903F41FD1E758001A3AC7 /* MessageUI.framework in Frameworks */,
@@ -168,7 +168,7 @@
 		D7763D3B1F8509DA007AE885 = {
 			isa = PBXGroup;
 			children = (
-				D7D9B51A21161BDC00AFF6DB /* AudioKit.framework */,
+				D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */,
 				D7763D461F8509DB007AE885 /* ChordRef */,
 				D7763D5B1F8509DB007AE885 /* ChordRefTests */,
 				D7763D451F8509DB007AE885 /* Products */,
@@ -276,10 +276,12 @@
 				TargetAttributes = {
 					D7763D431F8509DB007AE885 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					D7763D571F8509DB007AE885 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D7763D431F8509DB007AE885;
 					};
@@ -539,7 +541,7 @@
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -561,7 +563,7 @@
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -577,7 +579,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRefTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarBox.app/GuitarBox";
 			};
@@ -594,7 +596,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRefTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarBox.app/GuitarBox";
 			};

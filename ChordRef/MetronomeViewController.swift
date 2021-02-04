@@ -148,7 +148,7 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
         if counter == 1 && son {
             guard let url = Bundle.main.url(forResource: "metronome_son_haut", withExtension: "wav") else { print ("le fichier n'existe pas"); return }
             do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)), mode: .default)
                 try AVAudioSession.sharedInstance().setActive(true)
                 
                 /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
@@ -170,7 +170,7 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
         else {
             guard let url = Bundle.main.url(forResource: "metronome_son_bas", withExtension: "wav") else { print ("le fichier n'existe pas"); return }
             do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)), mode: .default)
                 try AVAudioSession.sharedInstance().setActive(true)
                 
                 /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
@@ -305,8 +305,8 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
         if TempoTextField.text! != "" {
             //Si la valeur entrée n'est pas entre 40 et 300, met une alerte
             if Float(TempoTextField.text!)! < 40 || Float(TempoTextField.text!)! > 300 {
-                let alert = UIAlertController(title: NSLocalizedString("Titre alerte", comment: ""), message: NSLocalizedString("Alerte", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                let alert = UIAlertController(title: NSLocalizedString("Titre alerte", comment: ""), message: NSLocalizedString("Alerte", comment: ""), preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 TempoTextField.text = String(Int(TempoSlider.value))
             }
@@ -332,8 +332,8 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
             }
         }
         else {
-            let alert = UIAlertController(title: NSLocalizedString("Titre alerte", comment: ""), message: NSLocalizedString("Alerte", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: NSLocalizedString("Titre alerte", comment: ""), message: NSLocalizedString("Alerte", comment: ""), preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             TempoTextField.text = String(Int(TempoSlider.value))
         }
@@ -456,4 +456,9 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
     }
     */
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }
