@@ -67,6 +67,8 @@ class TunerViewController: UIViewController, GADBannerViewDelegate {
         
         //Timer qui répète la fonction updateTuner() à chaque 0.1 seconde
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTuner), userInfo: nil, repeats: true)
+        
+        self.navigationItem.title = NSLocalizedString("Accordeur", comment: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {

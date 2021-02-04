@@ -32,8 +32,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Rechercher"
-        searchController.searchBar.setValue("Annuler", forKey:"_cancelButtonText")
+        searchController.searchBar.setValue(NSLocalizedString("Annuler", comment: ""), forKey:"_cancelButtonText")
         
         //Fonctions à ajouter si l'utilisateur utilise iOS 11
         if #available (iOS 11, *){
@@ -76,11 +75,14 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
             
             //Changer le placeholder de "Search" à "Rechercher"
-            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Rechercher", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Rechercher", comment: ""), attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
             
             //Changer les images pour l'icône de recherche et pour effacer
             searchController.searchBar.setImage(UIImage(named: "clear"), for: UISearchBarIcon.clear, state: .normal)
             searchController.searchBar.setImage(UIImage(named: "search"), for: UISearchBarIcon.search, state: .normal)
+            
+            //Localization
+            self.navigationItem.title = NSLocalizedString("Livre d'accords", comment: "")
         }
             
         //Si l'utilisateur n'utilise pas iOS 11

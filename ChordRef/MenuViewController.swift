@@ -13,6 +13,9 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var AccordsImage: UIImageView!
     @IBOutlet weak var AccordeurImage: UIImageView!
     @IBOutlet weak var MetronomeImage: UIImageView!
+    @IBOutlet weak var AccordsLabel: UILabel!
+    @IBOutlet weak var AccordeurLabel: UILabel!
+    @IBOutlet weak var MetronomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,11 @@ class MenuViewController: UIViewController {
         MetronomeImage.layer.shadowOpacity = 0.6
         MetronomeImage.layer.shadowRadius = 3.0
         MetronomeImage.clipsToBounds = false
+        
+        //Localization
+        AccordsLabel.text = NSLocalizedString("Livre d'accords", comment: "")
+        AccordeurLabel.text = NSLocalizedString("Accordeur", comment: "")
+        MetronomeLabel.text = NSLocalizedString("Métronome", comment: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {

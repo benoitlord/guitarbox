@@ -29,6 +29,9 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
     @IBOutlet weak var MetronomeImage: UIImageView!
     @IBOutlet weak var BottomView: UIView!
     @IBOutlet weak var TempoLabel: UILabel!
+    @IBOutlet weak var TempsFortsLabel: UILabel!
+    @IBOutlet weak var StartButton: UIButton!
+    @IBOutlet weak var StopButton: UIButton!
     
     //Pour le tempo et le type de mesure
     var tempoType = 3
@@ -65,6 +68,13 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
         
         //Enlève le bouton Back
         self.navigationItem.hidesBackButton = true
+        
+        //Localization
+        navigationItem.title = NSLocalizedString("Métronome", comment: "")
+        TempsFortsLabel.text = NSLocalizedString("Jouer les temps forts ?", comment: "")
+        StartButton.setTitle(NSLocalizedString("Démarrer", comment: ""), for: .normal)
+        StopButton.setTitle(NSLocalizedString("Arrêter", comment: ""), for: .normal)
+        TempoSegments.setTitle(NSLocalizedString("Aucun", comment: ""), forSegmentAt: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -295,7 +305,7 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
         if TempoTextField.text! != "" {
             //Si la valeur entrée n'est pas entre 40 et 300, met une alerte
             if Float(TempoTextField.text!)! < 40 || Float(TempoTextField.text!)! > 300 {
-                let alert = UIAlertController(title: "Valeur incorrecte", message: "Veuillez saisir une valeur entre 40 et 300", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: NSLocalizedString("Titre alerte", comment: ""), message: NSLocalizedString("Alerte", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 TempoTextField.text = String(Int(TempoSlider.value))
@@ -322,7 +332,7 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
             }
         }
         else {
-            let alert = UIAlertController(title: "Valeur incorrecte", message: "Veuillez saisir une valeur entre 40 et 300", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: NSLocalizedString("Titre alerte", comment: ""), message: NSLocalizedString("Alerte", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             TempoTextField.text = String(Int(TempoSlider.value))
