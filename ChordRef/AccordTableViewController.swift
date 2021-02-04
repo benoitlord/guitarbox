@@ -9,12 +9,13 @@
 import os.log
 import UIKit
 
-class AccordTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class AccordTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate{
     
     //MARK: Properties
     
     var unfilteredAccords = [Accord]()
     var filteredAccords = [Accord]()
+    //var favorites = [Accord?]()
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -66,6 +67,8 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         
         //Load data
         loadAccords()
+        
+        self.navigationItem.hidesBackButton = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +105,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return filteredAccords.count
+       
     }
 
     
@@ -116,6 +120,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         
          // Fetches the appropriate chord for the data source layout.
         let accord = filteredAccords[indexPath.row]
+        
         
         cell.nom.text = accord.name
         cell.imageAccord.image = accord.photo
@@ -182,6 +187,13 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             
             let selectedAccord = filteredAccords[indexPath.row]
             AccordDetailsViewController.bonAccord = selectedAccord
+            
+            AccordDetailsViewController.favorite = false
+            for accord in favorites {
+                if accord.name == selectedAccord.name {
+                    AccordDetailsViewController.favorite = true
+                }
+            }
         }
         else {
             fatalError("Mauvaise segue")
@@ -446,7 +458,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         else{
             loadAccords()
-            filteredAccords = unfilteredAccords
+            filteredAccords = favorites + unfilteredAccords
         }
         tableView.reloadData()
     }

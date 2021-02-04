@@ -6,6 +6,7 @@
 //  Copyright © 2017 Benoit Lord. All rights reserved.
 //
 
+import os.log
 import UIKit
 
 class Accord {

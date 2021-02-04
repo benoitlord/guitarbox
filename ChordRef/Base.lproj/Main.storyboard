@@ -52,8 +52,8 @@
                                     <outlet property="imageAccord" destination="ttV-e4-dIH" id="iQS-Mj-zMH"/>
                                     <outlet property="nom" destination="Rsc-co-qEM" id="TXN-5k-bc2"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="wdV-IT-eBH">
-                                        <segue key="commit" inheritsFrom="parent" id="BNd-jO-fPc"/>
-                                        <segue key="preview" inheritsFrom="commit" id="l9M-2p-RJu"/>
+                                        <segue key="commit" inheritsFrom="parent" id="h2l-8r-IcG"/>
+                                        <segue key="preview" inheritsFrom="commit" id="bpa-LW-Zs4"/>
                                     </segue>
                                 </connections>
                             </tableViewCell>
@@ -82,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vUn-XK-DW5" userLabel="Stack View">
-                                <rect key="frame" x="16" y="72" width="343" height="392"/>
+                                <rect key="frame" x="16" y="28" width="343" height="392"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pA7-s1-xij">
                                         <rect key="frame" x="45.5" y="0.0" width="252.5" height="26"/>
@@ -114,6 +114,10 @@
                                                 <size key="value" width="100" height="100"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OTN-dN-oTe"/>
+                                            <segue destination="Oce-rx-zmz" kind="show" id="TE0-n2-CPW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -127,6 +131,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="boutonFavoris" destination="dKd-bj-iKT" id="lNy-Ke-h9S"/>
                         <outlet property="imageAccord" destination="7VW-Pf-83G" id="OpE-fO-8c7"/>
                         <outlet property="nom" destination="duO-oB-hvH" id="Lck-0Y-l5e"/>
                     </connections>
@@ -168,5 +173,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wdV-IT-eBH"/>
+        <segue reference="TE0-n2-CPW"/>
     </inferredMetricsTieBreakers>
 </document>

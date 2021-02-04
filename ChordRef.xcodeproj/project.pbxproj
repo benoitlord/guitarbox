@@ -19,6 +19,7 @@
 		D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */; };
 		D78E54C51F85522C004E47F1 /* Accord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C41F85522C004E47F1 /* Accord.swift */; };
 		D78E54C71F85535B004E47F1 /* AccordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */; };
+		D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1A4071FBC8B250091E5E2 /* favorites.swift */; };
 		D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordTableViewCell.swift; sourceTree = "<group>"; };
 		D78E54C41F85522C004E47F1 /* Accord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accord.swift; sourceTree = "<group>"; };
 		D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordTableViewController.swift; sourceTree = "<group>"; };
+		D7A1A4071FBC8B250091E5E2 /* favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favorites.swift; sourceTree = "<group>"; };
 		D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */,
 				D7763D471F8509DB007AE885 /* AppDelegate.swift */,
 				D7763D491F8509DB007AE885 /* AccordViewController.swift */,
+				D7A1A4071FBC8B250091E5E2 /* favorites.swift */,
 				D78E54C41F85522C004E47F1 /* Accord.swift */,
 				D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */,
 				D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */,
@@ -227,6 +230,7 @@
 				D7763D4A1F8509DB007AE885 /* AccordViewController.swift in Sources */,
 				D7763D481F8509DB007AE885 /* AppDelegate.swift in Sources */,
 				D78E54C51F85522C004E47F1 /* Accord.swift in Sources */,
+				D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */,
 				D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */,
 				D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */,
 			);

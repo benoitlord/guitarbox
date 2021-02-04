@@ -18,6 +18,8 @@ import UIKit
         }
     }
     
+    var favorites = [Accord]()
+    
     //MARK: Initialization
     
     override init(frame: CGRect) {
@@ -32,17 +34,16 @@ import UIKit
     
     //MARK: Button Action
     
-    @objc func buttonTapped (button: UIButton) {
+    /*@objc func buttonTapped (sender: BoutonFavoris) {
         if !self.isSelected {
             self.isSelected = true
         }
         else{
             self.isSelected = false
         }
-    }
+    }*/
     
     private func setupButton() {
-
         let bundle = Bundle(for: type(of: self))
         let FavorisImage = UIImage(named: "AddFavoris", in: bundle, compatibleWith: self.traitCollection)
         let FavorisImageSelected = UIImage(named: "AddFavorisSelected", in: bundle, compatibleWith: self.traitCollection)
@@ -50,7 +51,7 @@ import UIKit
         self.setImage(FavorisImage, for: .normal)
         self.setImage(FavorisImageSelected, for: .selected)
         
-        self.addTarget(self, action: #selector(self.buttonTapped(button:)), for: .touchUpInside)
+        //self.addTarget(self, action: #selector(self.buttonTapped(sender: )), for: .touchUpInside)
     }
 
 }
