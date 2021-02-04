@@ -23,5 +23,9 @@
 "Arrêter" = "Stop";
 "Titre alerte" = "Incorrect value";
 "Alerte" = "Please enter a value between 40 and 300";
+"Titre rating" = "Like GuitarBox?";
+"Texte rating" = "Leave a review on the App Store.";
+"OK rating" = "Sure!";
+"Cancel rating" = "No thanks";
 
 

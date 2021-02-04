@@ -11,6 +11,8 @@ import UIKit
 //Pour permettre de sauvegarder les favoris dans les données de l'app
 struct defaultsKeys {
     static let favorites = "favorites"
+    static let launchCount = "launchCount"
+    static let rate = "rate"
 }
 
 let defaults = UserDefaults.standard

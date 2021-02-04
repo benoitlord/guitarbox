@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,9 +15,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+
         // Override point for customization after application launch.
+        let defaults = UserDefaults.standard
+        var launchCount = defaults.integer(forKey: "launchCount")
+        if launchCount >= 1 {
+            launchCount = launchCount+1
+            
+            let defaults = UserDefaults.standard
+            defaults.set(launchCount, forKey: defaultsKeys.launchCount)
+        }
+        else{
+            let launchCount = 1
+            
+            let defaults = UserDefaults.standard
+            defaults.set(launchCount, forKey: defaultsKeys.launchCount)
+        }
+        
+        //defaults.set(1, forKey: defaultsKeys.launchCount)
+        
+        if launchCount >= 3 {
+            let rate = defaults.bool(forKey: "rate")
+            if rate {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+                    if #available(iOS 10.3, *) {
+                        SKStoreReviewController.requestReview()
+                    }
+                    else{
+                        let alertController = UIAlertController(title: NSLocalizedString("Titre rating", comment: ""), message: NSLocalizedString("Texte rating", comment: ""), preferredStyle: .alert)
+                         let okAction = UIAlertAction(title: NSLocalizedString("OK rating", comment: ""), style: UIAlertAction.Style.default, handler: self.openRate)
+                         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel rating", comment: ""), style: UIAlertAction.Style.default) {
+                         UIAlertAction in
+                         NSLog("Cancel Pressed")
+                         }
+                         alertController.addAction(okAction)
+                         alertController.addAction(cancelAction)
+                         self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+                    }
+                    defaults.set(false, forKey: "rate")
+                }
+            }
+        }
+        else{
+            defaults.set(true, forKey: "rate")
+        }
         return true
+    }
+    
+    func openRate(alert: UIAlertAction!) {
+        let appID = "1320296077"
+        let urlStr = "itms-apps://itunes.apple.com/us/app/itunes-u/id\(appID)?action=write-review"
+        
+        if let url = URL(string: urlStr), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

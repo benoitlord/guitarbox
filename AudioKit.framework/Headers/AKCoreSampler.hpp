@@ -7,17 +7,21 @@
 //
 
 #ifdef __cplusplus
+#ifdef _WIN32
+#include "AKSampler_Typedefs.h"
+#include <memory>
+#else
 #import "AKSampler_Typedefs.h"
-
 #import <memory>
+#endif
 
 // process samples in "chunks" this size
 #define AKCORESAMPLER_CHUNKSIZE 16
 
 
 namespace AudioKitCore {
-    class SamplerVoice;
-    class KeyMappedSampleBuffer;
+    struct SamplerVoice;
+    struct KeyMappedSampleBuffer;
 }
 
 class AKCoreSampler
@@ -38,8 +42,14 @@ public:
     
     /// call to load samples
     void loadSampleData(AKSampleDataDescriptor& sdd);
+
+    /// call to unload samples, freeing memory
+    void unloadAllSamples();
     
     // after loading samples, call one of these to build the key map
+    
+    /// call for noteNumber 0-127 to define tuning table (defaults to standard 12-tone equal temperament)
+    void setNoteFrequency(int noteNumber, float noteFrequency);
     
     /// use this when you have full key mapping data (min/max note, vel)
     void buildKeyMap(void);
@@ -50,7 +60,7 @@ public:
     /// optionally call this to make samples continue looping after note-release
     void setLoopThruRelease(bool value) { loopThruRelease = value; }
     
-    void playNote(unsigned noteNumber, unsigned velocity, float noteFrequency);
+    void playNote(unsigned noteNumber, unsigned velocity);
     void stopNote(unsigned noteNumber, bool immediate);
     void sustainPedal(bool down);
     
@@ -73,13 +83,23 @@ public:
     float getFilterSustainFraction(void);
     void  setFilterReleaseDurationSeconds(float value);
     float getFilterReleaseDurationSeconds(void);
+
+    void  setPitchAttackDurationSeconds(float value);
+    float getPitchAttackDurationSeconds(void);
+    void  setPitchDecayDurationSeconds(float value);
+    float getPitchDecayDurationSeconds(void);
+    void  setPitchSustainFraction(float value);
+    float getPitchSustainFraction(void);
+    void  setPitchReleaseDurationSeconds(float value);
+    float getPitchReleaseDurationSeconds(void);
     
 protected:
     // current sampling rate, samples/sec
-    float sampleRate;
+    // not named sampleRate to avoid clashing with AudioKit's sampleRate
+    float currentSampleRate;
     
-    struct _Internal;
-    std::unique_ptr<_Internal> _private;
+    struct InternalData;
+    std::unique_ptr<InternalData> data;
     
     bool isKeyMapValid;
     
@@ -108,12 +128,21 @@ protected:
     
     // multiple of note frequency - 1.0 means cutoff at fundamental
     float cutoffMultiple;
+
+    // key tracking factor: 1.0 means perfect key tracking, 0.0 means none; may be e.g. -2.0 to +2.0
+    float keyTracking;
     
     // how much filter EG adds on top of cutoffMultiple
     float cutoffEnvelopeStrength;
     
+    /// fraction 0.0 - 1.0, scaling note volume's effect on cutoffEnvelopeStrength
+    float filterEnvelopeVelocityScaling;
+
     // resonance [-20 dB, +20 dB] becomes linear [10.0, 0.1]
     float linearResonance;
+
+    // how much pitch ADSR adds on top of pitch
+    float pitchADSRSemitones;
     
     // sample-related parameters
     
@@ -128,7 +157,6 @@ protected:
     AudioKitCore::KeyMappedSampleBuffer *lookupSample(unsigned noteNumber, unsigned velocity);
     void play(unsigned noteNumber,
               unsigned velocity,
-              float noteFrequency,
               bool anotherKeyWasDown);
     void stop(unsigned noteNumber, bool immediate);
 };
