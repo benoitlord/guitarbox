@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D7086B371FA0F2F000F4DC9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7086B361FA0F2EF00F4DC9C /* LaunchScreen.storyboard */; };
 		D717070D200704A200D9E062 /* MetronomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D717070C200704A200D9E062 /* MetronomeViewController.swift */; };
-		D71903E21FD1E69D001A3AC7 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71903E11FD1E69D001A3AC7 /* GoogleMobileAds.framework */; };
 		D71903E41FD1E6BF001A3AC7 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71903E31FD1E6B7001A3AC7 /* EventKit.framework */; };
 		D71903E61FD1E6D0001A3AC7 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71903E51FD1E6C7001A3AC7 /* EventKitUI.framework */; };
 		D71903E81FD1E6E2001A3AC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71903E71FD1E6DB001A3AC7 /* AVFoundation.framework */; };
@@ -24,7 +23,8 @@
 		D723646A1FA0E80100DA6A50 /* Mukta-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */; };
 		D723646B1FA0E80500DA6A50 /* Mukta-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */; };
 		D7358D77200E9DC700F5D4F5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7358D76200E9DC700F5D4F5 /* AboutViewController.swift */; };
-		D75BF30C2173C77F0073069D /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */; };
+		D73615B725CC9A7E00A0F97F /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */; };
+		D73615BE25CC9BE500A0F97F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73615BD25CC9BE500A0F97F /* GoogleMobileAds.framework */; };
 		D75D4B7820041BAA00DE5CA3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D4B7720041BAA00DE5CA3 /* MenuViewController.swift */; };
 		D76632751FF96F2A00CF6949 /* AccordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76632741FF96F2A00CF6949 /* AccordTableViewController.swift */; };
 		D76A65DD201A61D300F5C568 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D76A65DF201A61D300F5C568 /* Localizable.strings */; };
@@ -41,9 +41,7 @@
 		D79A1AFF21C5AD110069420B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A1AFE21C5AD110069420B /* SettingsViewController.swift */; };
 		D7A05D20201BCCE70065DFFF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A05D22201BCCE70065DFFF /* InfoPlist.strings */; };
 		D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1A4071FBC8B250091E5E2 /* favorites.swift */; };
-		D7AB1D1E21AB316300991B52 /* Mukta-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7AB1D1B21AB316300991B52 /* Mukta-Bold.ttf */; };
 		D7AB1D1F21AB316300991B52 /* Mukta-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7AB1D1C21AB316300991B52 /* Mukta-Medium.ttf */; };
-		D7AB1D2021AB316300991B52 /* Mukta-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7AB1D1D21AB316300991B52 /* Mukta-Regular.ttf */; };
 		D7AB1D2221AB36C300991B52 /* RecorderHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB1D2121AB36C300991B52 /* RecorderHomeTableViewController.swift */; };
 		D7AB1D2421AB42E800991B52 /* RecorderHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB1D2321AB42E800991B52 /* RecorderHomeTableViewCell.swift */; };
 		D7AB1D2621AB4C3F00991B52 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB1D2521AB4C3F00991B52 /* Recording.swift */; };
@@ -51,7 +49,7 @@
 		D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */; };
 		D7EEC352200915690016ACF3 /* metronome_son_bas.wav in Resources */ = {isa = PBXBuildFile; fileRef = D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */; };
 		D7EEC353200915690016ACF3 /* metronome_son_haut.wav in Resources */ = {isa = PBXBuildFile; fileRef = D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */; };
-		D7F503C81FEC0670001DCF8C /* sons in Resources */ = {isa = PBXBuildFile; fileRef = D7F503C61FEC05DA001DCF8C /* sons */; };
+		D7F503C81FEC0670001DCF8C /* chord_sounds in Resources */ = {isa = PBXBuildFile; fileRef = D7F503C61FEC05DA001DCF8C /* chord_sounds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,19 +61,6 @@
 			remoteInfo = ChordRef;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		D7D9B52121161CF100AFF6DB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D7086B361FA0F2EF00F4DC9C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,9 +77,10 @@
 		D71903F31FD1E752001A3AC7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D71903F51FD1E764001A3AC7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D71903F71FD1E773001A3AC7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Regular.ttf"; sourceTree = "<group>"; };
-		D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Bold.ttf"; sourceTree = "<group>"; };
+		D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mukta-Regular.ttf"; path = "assets/Mukta/Mukta-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mukta-Bold.ttf"; path = "assets/Mukta/Mukta-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		D7358D76200E9DC700F5D4F5 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		D73615BD25CC9BE500A0F97F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Assets/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		D75D4B7720041BAA00DE5CA3 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D76632741FF96F2A00CF6949 /* AccordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccordTableViewController.swift; sourceTree = "<group>"; };
 		D76A65DE201A61D300F5C568 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -117,9 +103,7 @@
 		D7A05D23201BCCEC0065DFFF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7A05D25201BCE820065DFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		D7A1A4071FBC8B250091E5E2 /* favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favorites.swift; sourceTree = "<group>"; };
-		D7AB1D1B21AB316300991B52 /* Mukta-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Bold.ttf"; sourceTree = "<group>"; };
 		D7AB1D1C21AB316300991B52 /* Mukta-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Medium.ttf"; sourceTree = "<group>"; };
-		D7AB1D1D21AB316300991B52 /* Mukta-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Regular.ttf"; sourceTree = "<group>"; };
 		D7AB1D2121AB36C300991B52 /* RecorderHomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderHomeTableViewController.swift; sourceTree = "<group>"; };
 		D7AB1D2321AB42E800991B52 /* RecorderHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderHomeTableViewCell.swift; sourceTree = "<group>"; };
 		D7AB1D2521AB4C3F00991B52 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
@@ -128,7 +112,7 @@
 		D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_son_haut.wav; sourceTree = "<group>"; };
 		D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_son_bas.wav; sourceTree = "<group>"; };
-		D7F503C61FEC05DA001DCF8C /* sons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sons; sourceTree = "<group>"; };
+		D7F503C61FEC05DA001DCF8C /* chord_sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = chord_sounds; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +120,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75BF30C2173C77F0073069D /* AudioKit.framework in Frameworks */,
 				D71903F81FD1E77A001A3AC7 /* SystemConfiguration.framework in Frameworks */,
 				D71903F61FD1E769001A3AC7 /* StoreKit.framework in Frameworks */,
+				D73615BE25CC9BE500A0F97F /* GoogleMobileAds.framework in Frameworks */,
+				D73615B725CC9A7E00A0F97F /* AudioKit.framework in Frameworks */,
 				D71903F41FD1E758001A3AC7 /* MessageUI.framework in Frameworks */,
 				D71903F21FD1E744001A3AC7 /* CoreMedia.framework in Frameworks */,
 				D71903F01FD1E735001A3AC7 /* CoreTelephony.framework in Frameworks */,
@@ -148,7 +133,6 @@
 				D71903E81FD1E6E2001A3AC7 /* AVFoundation.framework in Frameworks */,
 				D71903E61FD1E6D0001A3AC7 /* EventKitUI.framework in Frameworks */,
 				D71903E41FD1E6BF001A3AC7 /* EventKit.framework in Frameworks */,
-				D71903E21FD1E69D001A3AC7 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +149,7 @@
 		D71903E01FD1E69C001A3AC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D73615BD25CC9BE500A0F97F /* GoogleMobileAds.framework */,
 				D71903F71FD1E773001A3AC7 /* SystemConfiguration.framework */,
 				D71903F51FD1E764001A3AC7 /* StoreKit.framework */,
 				D71903F31FD1E752001A3AC7 /* MessageUI.framework */,
@@ -181,13 +166,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D73615B125CC989200A0F97F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */,
+				D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */,
+				D7763D4E1F8509DB007AE885 /* Assets.xcassets */,
+				D7F503C61FEC05DA001DCF8C /* chord_sounds */,
+				D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */,
+				D7AB1D1A21AB316300991B52 /* Mukta */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		D7763D3B1F8509DA007AE885 = {
 			isa = PBXGroup;
 			children = (
-				D7AB1D1A21AB316300991B52 /* Mukta */,
-				D7EAAFBC21739D6300DE7FE1 /* AudioKit.framework */,
-				D7763D461F8509DB007AE885 /* ChordRef */,
-				D7763D5B1F8509DB007AE885 /* ChordRefTests */,
+				D73615B125CC989200A0F97F /* Assets */,
+				D7763D461F8509DB007AE885 /* Project */,
+				D7763D5B1F8509DB007AE885 /* Tests */,
 				D7763D451F8509DB007AE885 /* Products */,
 				D71903E01FD1E69C001A3AC7 /* Frameworks */,
 			);
@@ -202,17 +199,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D7763D461F8509DB007AE885 /* ChordRef */ = {
+		D7763D461F8509DB007AE885 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				D7763D4E1F8509DB007AE885 /* Assets.xcassets */,
-				D7F503C61FEC05DA001DCF8C /* sons */,
-				D7EEC351200914EF0016ACF3 /* metronome_son_bas.wav */,
-				D7EEC350200914EF0016ACF3 /* metronome_son_haut.wav */,
 				D7A05D24201BCE820065DFFF /* Info.plist */,
 				D7A05D22201BCCE70065DFFF /* InfoPlist.strings */,
-				D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */,
-				D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */,
 				D76A65DF201A61D300F5C568 /* Localizable.strings */,
 				D7763D4B1F8509DB007AE885 /* Main.storyboard */,
 				D7086B361FA0F2EF00F4DC9C /* LaunchScreen.storyboard */,
@@ -235,24 +226,24 @@
 				D7AB1D2721AB52EC00991B52 /* NewRecordingViewController.swift */,
 				D79A1AFE21C5AD110069420B /* SettingsViewController.swift */,
 			);
-			path = ChordRef;
+			path = Project;
 			sourceTree = "<group>";
 		};
-		D7763D5B1F8509DB007AE885 /* ChordRefTests */ = {
+		D7763D5B1F8509DB007AE885 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				D7763D5C1F8509DB007AE885 /* ChordRefTests.swift */,
 				D7763D5E1F8509DB007AE885 /* Info.plist */,
 			);
-			path = ChordRefTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		D7AB1D1A21AB316300991B52 /* Mukta */ = {
 			isa = PBXGroup;
 			children = (
-				D7AB1D1B21AB316300991B52 /* Mukta-Bold.ttf */,
+				D72364681FA0E7F200DA6A50 /* Mukta-Regular.ttf */,
 				D7AB1D1C21AB316300991B52 /* Mukta-Medium.ttf */,
-				D7AB1D1D21AB316300991B52 /* Mukta-Regular.ttf */,
+				D72364691FA0E7F200DA6A50 /* Mukta-Bold.ttf */,
 			);
 			path = Mukta;
 			sourceTree = "<group>";
@@ -267,7 +258,6 @@
 				D7763D401F8509DB007AE885 /* Sources */,
 				D7763D411F8509DB007AE885 /* Frameworks */,
 				D7763D421F8509DB007AE885 /* Resources */,
-				D7D9B52121161CF100AFF6DB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,7 +293,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Benoit Lord";
 				TargetAttributes = {
 					D7763D431F8509DB007AE885 = {
@@ -345,15 +335,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7AB1D1F21AB316300991B52 /* Mukta-Medium.ttf in Resources */,
-				D7AB1D1E21AB316300991B52 /* Mukta-Bold.ttf in Resources */,
 				D7EEC352200915690016ACF3 /* metronome_son_bas.wav in Resources */,
 				D7EEC353200915690016ACF3 /* metronome_son_haut.wav in Resources */,
-				D7F503C81FEC0670001DCF8C /* sons in Resources */,
+				D7F503C81FEC0670001DCF8C /* chord_sounds in Resources */,
 				D723646B1FA0E80500DA6A50 /* Mukta-Regular.ttf in Resources */,
 				D76A65DD201A61D300F5C568 /* Localizable.strings in Resources */,
 				D723646A1FA0E80100DA6A50 /* Mukta-Bold.ttf in Resources */,
 				D7763D4F1F8509DB007AE885 /* Assets.xcassets in Resources */,
-				D7AB1D2021AB316300991B52 /* Mukta-Regular.ttf in Resources */,
 				D7086B371FA0F2F000F4DC9C /* LaunchScreen.storyboard in Resources */,
 				D7763D4D1F8509DB007AE885 /* Main.storyboard in Resources */,
 				D7A05D20201BCCE70065DFFF /* InfoPlist.strings in Resources */,
@@ -477,6 +465,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -502,7 +491,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -537,6 +526,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -556,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -575,6 +565,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChordRef",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Assets",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ChordRef/Base.lproj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -597,6 +588,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChordRef",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Assets",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ChordRef/Base.lproj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
