@@ -35,10 +35,10 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         if #available (iOS 11, *){
             
             //Met la search bar dans la navbar
-            self.navigationItem.searchController = searchController
             searchController.searchBar.searchBarStyle = .default
             searchController.searchBar.tintColor = UIColor.white
             searchController.searchBar.barTintColor = UIColor.white
+            self.navigationItem.searchController = searchController
             
             //Changer l'apparence de la search bar
             for subView in searchController.searchBar.subviews {
@@ -52,6 +52,19 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
                         let textFieldInsideUISearchBarLabel = textField.value(forKey: "placeholderLabel") as? UILabel
                         textFieldInsideUISearchBarLabel?.textColor = UIColor.white
                     }
+                }
+            }
+            
+            if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+                if let backgroundview = textfield.subviews.first {
+                    
+                    // Background color
+                    let sbColor = UIColor(red: 80/255, green: 30/255, blue: 6/255, alpha: 1)
+                    backgroundview.backgroundColor = sbColor
+                    
+                    // Rounded corner
+                    backgroundview.layer.cornerRadius = 10;
+                    backgroundview.clipsToBounds = true;
                 }
             }
             

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ag7-ly-OTN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ag7-ly-OTN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
@@ -51,7 +51,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsc-co-qEM">
-                                            <rect key="frame" x="108" y="34" width="218" height="33"/>
+                                            <rect key="frame" x="108" y="27" width="218" height="47"/>
                                             <fontDescription key="fontDescription" name="Mukta-Bold" family="Mukta" pointSize="28"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -108,19 +108,19 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vUn-XK-DW5" userLabel="Stack View">
-                                        <rect key="frame" x="0.0" y="10" width="375" height="392"/>
+                                        <rect key="frame" x="0.0" y="10" width="375" height="403"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pA7-s1-xij">
-                                                <rect key="frame" x="61.5" y="0.0" width="252.5" height="26"/>
+                                                <rect key="frame" x="72" y="0.0" width="231" height="37"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom de l'accord : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2in-Dx-BO1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="26"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="37"/>
                                                         <fontDescription key="fontDescription" name="Mukta-Bold" family="Mukta" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duO-oB-hvH">
-                                                        <rect key="frame" x="182" y="0.0" width="70.5" height="26"/>
+                                                        <rect key="frame" x="168.5" y="0.0" width="62.5" height="37"/>
                                                         <fontDescription key="fontDescription" name="Mukta-Regular" family="Mukta" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -128,13 +128,13 @@
                                                 </subviews>
                                             </stackView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderAccord" translatesAutoresizingMaskIntoConstraints="NO" id="CYd-Tl-k47">
-                                                <rect key="frame" x="37.5" y="34" width="300" height="300"/>
+                                                <rect key="frame" x="37.5" y="45" width="300" height="300"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="CYd-Tl-k47" secondAttribute="height" multiplier="1:1" id="iD0-IS-ZW9"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKd-bj-iKT" customClass="BoutonFavoris" customModule="ChordRef" customModuleProvider="target">
-                                                <rect key="frame" x="162.5" y="342" width="50" height="50"/>
+                                                <rect key="frame" x="162.5" y="353" width="50" height="50"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="size" keyPath="size">
                                                         <size key="value" width="100" height="100"/>
