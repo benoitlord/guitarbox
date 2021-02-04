@@ -33,6 +33,7 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
     //Pour le tempo et le type de mesure
     var tempoType = 3
     var tempo = 120
+    var son: Bool = true
     
     //Détermine si le métronome est parti
     var parti = false
@@ -134,7 +135,7 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
         updateImage()
         
         //si on est au premier temps, jouer le son plus haut
-        if counter == 1 {
+        if counter == 1 && son {
             guard let url = Bundle.main.url(forResource: "metronome_son_haut", withExtension: "wav") else { print ("le fichier n'existe pas"); return }
             do {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -291,33 +292,48 @@ class MetronomeViewController: UIViewController, UITextFieldDelegate, AVAudioPla
         //Enlève le clavier
         TempoTextField.resignFirstResponder()
         
-        //Si la valeur entrée n'est pas entre 40 et 300, met une alerte
-        if Float(TempoTextField.text!)! < 40 || Float(TempoTextField.text!)! > 300 {
+        if TempoTextField.text! != "" {
+            //Si la valeur entrée n'est pas entre 40 et 300, met une alerte
+            if Float(TempoTextField.text!)! < 40 || Float(TempoTextField.text!)! > 300 {
+                let alert = UIAlertController(title: "Valeur incorrecte", message: "Veuillez saisir une valeur entre 40 et 300", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                TempoTextField.text = String(Int(TempoSlider.value))
+            }
+            //Sinon, change le tempo
+            else{
+                //Change la valeur du slider
+                TempoSlider.value = Float(TempoTextField.text!)!
+                
+                //Change le tempo
+                tempo = Int(TempoTextField.text!)!
+                
+                //Change le texte du tempo
+                WriteTempo()
+                
+                //Change le timer
+                if timer != nil {
+                    timer!.invalidate()
+                    timer = nil
+                }
+                if parti == true {
+                    timer = Timer.scheduledTimer(timeInterval: 60/tempo, target: self, selector: #selector(JouerSon), userInfo: nil, repeats: true)
+                }
+            }
+        }
+        else {
             let alert = UIAlertController(title: "Valeur incorrecte", message: "Veuillez saisir une valeur entre 40 et 300", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             TempoTextField.text = String(Int(TempoSlider.value))
         }
-        //Sinon, change le tempo
-        else{
-            //Change la valeur du slider
-            TempoSlider.value = Float(TempoTextField.text!)!
-            
-            //Change le tempo
-            tempo = Int(TempoTextField.text!)!
-            
-            //Change le texte du tempo
-            WriteTempo()
-            
-            //Change le timer
-            if timer != nil {
-                timer!.invalidate()
-                timer = nil
-            }
-            if parti == true {
-                timer = Timer.scheduledTimer(timeInterval: 60/tempo, target: self, selector: #selector(JouerSon), userInfo: nil, repeats: true)
-            }
-        }
+    }
+    
+    //Est appelée quand on change la switch, met à jour la variable qui détermine si on joue le son haut
+    @IBAction func SwitchChanged(_ sender: Any) {
+        let laSwitch = sender as! UISwitch
+        
+        son = laSwitch.isOn
     }
     
     //Fonction qui détermine quel tempo à écrire (texte)

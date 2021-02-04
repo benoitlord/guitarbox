@@ -37,8 +37,17 @@ import UIKit
         let SonImage = UIImage(named: "Son", in: bundle, compatibleWith: self.traitCollection)
         let SonImageSelected = UIImage(named: "SonSelected", in: bundle, compatibleWith: self.traitCollection)
         
-        self.setImage(SonImage, for: .normal)
-        self.setImage(SonImageSelected, for: .selected)
+        let SonImageGros = UIImage(named: "SonGros", in: bundle, compatibleWith: self.traitCollection)
+        let SonImageSelectedGros = UIImage(named: "SonSelectedGros", in: bundle, compatibleWith: self.traitCollection)
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            self.setImage(SonImage, for: .normal)
+            self.setImage(SonImageSelected, for: .selected)
+        }
+        else{
+            self.setImage(SonImageGros, for: .normal)
+            self.setImage(SonImageSelectedGros, for: .selected)
+        }
     }
 
 }

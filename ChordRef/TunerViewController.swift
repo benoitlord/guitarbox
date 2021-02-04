@@ -30,7 +30,6 @@ class Pitch {
     }
 }
 
-
 class TunerViewController: UIViewController, GADBannerViewDelegate {
     
     //MARK: Propriétés
@@ -45,6 +44,8 @@ class TunerViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var offsetLabel: UILabel!
     @IBOutlet weak var aiguilleImage: UIImageView!
     @IBOutlet weak var tunerImage: UIImageView!
+    @IBOutlet weak var BottomView: UIView!
+    @IBOutlet weak var BGImage: UIImageView!
     
     // Ad banner and interstitial views
     var adMobBannerView = GADBannerView()
@@ -66,6 +67,30 @@ class TunerViewController: UIViewController, GADBannerViewDelegate {
         
         //Timer qui répète la fonction updateTuner() à chaque 0.1 seconde
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTuner), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if UIDevice.current.orientation.isLandscape && UIDevice.current.userInterfaceIdiom == .pad {
+            print("Landscape")
+            BGImage.image = UIImage(named: "BGTunerLandscape")
+            BottomView.isHidden = true
+        } else if UIDevice.current.orientation.isLandscape == false && UIDevice.current.userInterfaceIdiom == .pad {
+            print("Portrait")
+            BGImage.image = UIImage(named: "BGTuner")
+            BottomView.isHidden = false
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape && UIDevice.current.userInterfaceIdiom == .pad {
+            print("Landscape")
+            BGImage.image = UIImage(named: "BGTunerLandscape")
+            BottomView.isHidden = true
+        } else if UIDevice.current.orientation.isLandscape == false && UIDevice.current.userInterfaceIdiom == .pad {
+            print("Portrait")
+            BGImage.image = UIImage(named: "BGTuner")
+            BottomView.isHidden = false
+        }
     }
 
     override func didReceiveMemoryWarning() {

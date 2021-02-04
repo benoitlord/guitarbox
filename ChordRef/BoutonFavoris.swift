@@ -37,8 +37,17 @@ import UIKit
         let FavorisImage = UIImage(named: "AddFavoris", in: bundle, compatibleWith: self.traitCollection)
         let FavorisImageSelected = UIImage(named: "AddFavorisSelected", in: bundle, compatibleWith: self.traitCollection)
         
-        self.setImage(FavorisImage, for: .normal)
-        self.setImage(FavorisImageSelected, for: .selected)
+        let FavorisImageGros = UIImage(named: "AddFavorisGros", in: bundle, compatibleWith: self.traitCollection)
+        let FavorisImageSelectedGros = UIImage(named: "AddFavorisSelectedGros", in: bundle, compatibleWith: self.traitCollection)
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            self.setImage(FavorisImage, for: .normal)
+            self.setImage(FavorisImageSelected, for: .selected)
+        }
+        else{
+            self.setImage(FavorisImageGros, for: .normal)
+            self.setImage(FavorisImageSelectedGros, for: .selected)
+        }
     }
 
 }
