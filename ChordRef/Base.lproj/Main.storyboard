@@ -15,6 +15,9 @@
         <array key="Mukta-Bold.ttf">
             <string>Mukta-Bold</string>
         </array>
+        <array key="Mukta-Regular.ttf">
+            <string>Mukta-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Accords-->
@@ -110,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CImage" translatesAutoresizingMaskIntoConstraints="NO" id="CYd-Tl-k47">
-                                <rect key="frame" x="-50" y="-25" width="475" height="844"/>
+                                <rect key="frame" x="-50" y="-25" width="475" height="843.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CYd-Tl-k47" secondAttribute="height" multiplier="500:889" id="Hm0-WB-eXr"/>
                                 </constraints>
@@ -217,17 +220,68 @@
         <!--Accordeur-->
         <scene sceneID="eW3-kV-1TR">
             <objects>
-                <viewController title="Accordeur" id="VBx-md-FLE" sceneMemberID="viewController">
+                <viewController title="Accordeur" id="VBx-md-FLE" customClass="TunerViewController" customModule="ChordRef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZAR-4o-Nhy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Aiguille" translatesAutoresizingMaskIntoConstraints="NO" id="wbk-c0-uef">
+                                <rect key="frame" x="177.5" y="173" width="20" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wbk-c0-uef" secondAttribute="height" multiplier="2:45" id="xZ8-BX-6Jk"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tuner" translatesAutoresizingMaskIntoConstraints="NO" id="vqy-F9-1gf">
+                                <rect key="frame" x="0.5" y="-16" width="374" height="935"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMb-ED-0z5">
+                                <rect key="frame" x="162" y="99" width="51" height="33.5"/>
+                                <fontDescription key="fontDescription" name="Mukta-Regular" family="Mukta" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb3-Xg-HKJ">
+                                <rect key="frame" x="155.5" y="387.5" width="64" height="50"/>
+                                <fontDescription key="fontDescription" name="Mukta-Bold" family="Mukta" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="uMb-ED-0z5" firstAttribute="centerX" secondItem="ZAR-4o-Nhy" secondAttribute="centerX" id="AJn-rv-GlS"/>
+                            <constraint firstItem="wbk-c0-uef" firstAttribute="centerX" secondItem="ZAR-4o-Nhy" secondAttribute="centerX" id="FD0-I0-pHT"/>
+                            <constraint firstItem="Vb3-Xg-HKJ" firstAttribute="centerX" secondItem="ZAR-4o-Nhy" secondAttribute="centerX" id="Kfl-Vb-2Gk"/>
+                            <constraint firstItem="vqy-F9-1gf" firstAttribute="centerX" secondItem="ZAR-4o-Nhy" secondAttribute="centerX" id="P8A-BQ-NUR"/>
+                            <constraint firstItem="uMb-ED-0z5" firstAttribute="top" secondItem="6cp-7U-jGd" secondAttribute="top" constant="35" id="dkx-9Z-9wE"/>
+                            <constraint firstItem="wbk-c0-uef" firstAttribute="top" secondItem="uMb-ED-0z5" secondAttribute="bottom" constant="40.5" id="hKy-Pv-OSH"/>
+                            <constraint firstItem="Vb3-Xg-HKJ" firstAttribute="top" secondItem="uMb-ED-0z5" secondAttribute="bottom" constant="255" id="kqh-Ye-zV9"/>
+                            <constraint firstItem="vqy-F9-1gf" firstAttribute="top" secondItem="6cp-7U-jGd" secondAttribute="top" constant="-80" id="oie-LF-Gft"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6cp-7U-jGd"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Accordeur" id="9Fq-iu-tVL">
+                        <barButtonItem key="rightBarButtonItem" image="HomeImage" id="Qlu-C2-dPL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="BackToMenu:" destination="VBx-md-FLE" id="YYS-bv-Ylp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="aiguilleImage" destination="wbk-c0-uef" id="tX9-W7-iJT"/>
+                        <outlet property="noteLabel" destination="Vb3-Xg-HKJ" id="26i-xb-ajS"/>
+                        <outlet property="offsetLabel" destination="uMb-ED-0z5" id="fBd-n1-CIF"/>
+                        <outlet property="tunerImage" destination="vqy-F9-1gf" id="Ba9-j3-iwv"/>
+                        <segue destination="4VA-ZG-8Ir" kind="unwind" identifier="backToMenu" unwindAction="unwindToMenuWithSegue:" id="Qb0-j1-Wzi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41h-fX-c1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4VA-ZG-8Ir" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="652" y="717"/>
+            <point key="canvasLocation" x="652" y="716.49175412293857"/>
         </scene>
         <!--Nav Controller-->
         <scene sceneID="Quf-5t-nVo">
@@ -256,13 +310,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Aiguille" width="20" height="450"/>
         <image name="CImage" width="350" height="624"/>
         <image name="Favoris" width="25" height="25"/>
         <image name="HomeImage" width="25" height="25"/>
         <image name="PlaceholderAccord" width="300" height="300"/>
+        <image name="Tuner" width="374" height="935"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wdV-IT-eBH"/>
-        <segue reference="5YD-8T-Urg"/>
+        <segue reference="TE0-n2-CPW"/>
     </inferredMetricsTieBreakers>
 </document>

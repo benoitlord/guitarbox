@@ -54,15 +54,11 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        print("test")
         switch indexPath.row{
             case 0:
-                print("accords")
                 self.performSegue(withIdentifier: "accords", sender: self);
                 break;
             case 1:
-                print("tuner")
                 self.performSegue(withIdentifier: "tuner", sender: self);
                 break;
             default:

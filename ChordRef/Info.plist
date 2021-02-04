@@ -43,5 +43,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Veuillez autoriser l&apos;accès au microphone pour utiliser l&apos;accordeur</string>
 </dict>
 </plist>
