@@ -81,7 +81,6 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             //Changer les images pour l'icône de recherche et pour effacer
             searchController.searchBar.setImage(UIImage(named: "clear"), for: UISearchBarIcon.clear, state: .normal)
             searchController.searchBar.setImage(UIImage(named: "search"), for: UISearchBarIcon.search, state: .normal)
-            
         }
             
         //Si l'utilisateur n'utilise pas iOS 11
@@ -106,6 +105,13 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
             self.navigationItem.hidesSearchBarWhenScrolling = false
             self.navigationItem.largeTitleDisplayMode = .always
         }
+        
+        //Shadow
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 0.0
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.0
+        self.navigationController?.navigationBar.layer.masksToBounds = false
     }
     
     override func viewDidAppear(_ animated: Bool) {

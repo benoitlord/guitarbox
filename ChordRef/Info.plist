@@ -21,9 +21,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Veuillez autoriser l'accès au microphone pour utiliser l'accordeur</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Mukta-Bold.ttf</string>
@@ -43,7 +45,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Veuillez autoriser l&apos;accès au microphone pour utiliser l&apos;accordeur</string>
 </dict>
 </plist>

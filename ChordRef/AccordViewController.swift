@@ -54,6 +54,13 @@ class AccordViewController: UIViewController, GADBannerViewDelegate, AVAudioPlay
         if #available(iOS 11.0, *) {
             self.navigationItem.largeTitleDisplayMode = .never
         }
+        
+        //Shadow
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 3.0
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.6
+        self.navigationController?.navigationBar.layer.masksToBounds = false
     }
     
     // Pour passer l'info entre les scènes

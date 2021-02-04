@@ -8,7 +8,9 @@
 
 import UIKit
 import AudioKit
+import GoogleMobileAds
 
+//Extension pour arrondir les nombres
 extension Double {
     /// Rounds the double to decimal places value
     func rounded(toPlaces places:Int) -> Double {
@@ -17,6 +19,7 @@ extension Double {
     }
 }
 
+//Classe pour contenir la note
 class Pitch {
     var note: String
     var offset: Double
@@ -27,22 +30,42 @@ class Pitch {
     }
 }
 
-class TunerViewController: UIViewController {
+
+class TunerViewController: UIViewController, GADBannerViewDelegate {
     
+    //MARK: Propriétés
+    
+    var timer: Timer?
+    
+    //Microphone Tracker
     let micro = AKMicrophoneTracker()
+    
+    //Outlets
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var offsetLabel: UILabel!
     @IBOutlet weak var aiguilleImage: UIImageView!
     @IBOutlet weak var tunerImage: UIImageView!
     
+    // Ad banner and interstitial views
+    var adMobBannerView = GADBannerView()
+    
+    // IMPORTANT: REPLACE THE RED STRING BELOW WITH THE AD UNIT ID YOU'VE GOT BY REGISTERING YOUR APP IN http://apps.admob.com
+    let ADMOB_BANNER_UNIT_ID = "ca-app-pub-8499742200234965/6806808513"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Init AdMob banner
+        initAdMobBanner()
+        
+        //Pour enlever le bouton Back
         self.navigationItem.hidesBackButton = true
         
+        //Démarre le Microphone Tracker
         micro.start()
         
-        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTuner), userInfo: nil, repeats: true)
+        //Timer qui répète la fonction updateTuner() à chaque 0.1 seconde
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTuner), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,37 +73,55 @@ class TunerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillDisappear(_ animated: Bool) {
+        timer!.invalidate()
+    }
+    
+    //MARK: Pour le bouton vers le menu
     @IBAction func BackToMenu(_ sender: Any) {
         performSegue(withIdentifier: "backToMenu", sender: self)
     }
     
+    //MARK: Mise à jour de l'accordeur
     @objc func updateTuner() {
+        
+        //Donnée trouvées par le micro
         let frequence = micro.frequency
         let amplitude = micro.amplitude
         
+        //Arrondie la fréquence
         let frequenceArrondie = frequence.rounded(toPlaces: 1)
         
+        //Appèle la fonction qui trouve la note
         let note = trouverNote(frequence: frequenceArrondie)
+        
+        //Arrondie la différence
         let offset = note.offset.rounded(toPlaces: 1)
         
+        //Si le son est assez fort
         if amplitude > 0.1 && note.note != "err" {
             
+            //Met à jour les labels
             noteLabel.text = note.note
             offsetLabel.text = String(offset)
             
+            //Trop bas
             if offset < -0.2 {
                 tunerImage.image = UIImage(named: "TunerB")
             }
+            //Trop Haut
             else if offset > 0.2 {
                 tunerImage.image = UIImage(named: "Tuner#")
             }
+            //OK
             else if offset > -0.2 && offset < 0.2 {
                 tunerImage.image = UIImage(named: "TunerOK")
             }
             
+            //Fait tourner l'aiguille
             aiguilleImage.transform = CGAffineTransform(rotationAngle: CGFloat(offset*0.1))
         }
+        //Si le son n'est pas assez fort
         else{
             noteLabel.text = "-"
             offsetLabel.text = "-"
@@ -89,6 +130,7 @@ class TunerViewController: UIViewController {
         }
     }
     
+    //MARK: Pour déterminer quelle note est entendue
     func trouverNote (frequence: Double) -> Pitch {
         let notes: [String: Double] = ["c": 65.4, "c#": 69.2, "d": 73.4, "d#": 77.7, "e": 82.4, "f": 87.3, "f#": 92.5, "g": 98.0, "g#": 103.8, "a": 110.0, "a#": 116.5, "b": 123.4]
         
@@ -245,6 +287,55 @@ class TunerViewController: UIViewController {
         }
         
         return Pitch(note: "err", offset: 0.0)
+    }
+    
+    // MARK: -  ADMOB BANNER
+    func initAdMobBanner() {
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            // iPhone
+            adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
+            adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 320, height: 50)
+        } else  {
+            // iPad
+            adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 468, height: 60))
+            adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 468, height: 60)
+        }
+        
+        adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
+        adMobBannerView.rootViewController = self
+        adMobBannerView.delegate = self
+        view.addSubview(adMobBannerView)
+        
+        let request = GADRequest()
+        adMobBannerView.load(request)
+    }
+    
+    
+    // Hide the banner
+    func hideBanner(_ banner: UIView) {
+        UIView.beginAnimations("hideBanner", context: nil)
+        banner.frame = CGRect(x: view.frame.size.width/2 - banner.frame.size.width/2, y: view.frame.size.height - banner.frame.size.height, width: banner.frame.size.width, height: banner.frame.size.height)
+        UIView.commitAnimations()
+        banner.isHidden = true
+    }
+    
+    // Show the banner
+    func showBanner(_ banner: UIView) {
+        UIView.beginAnimations("showBanner", context: nil)
+        banner.frame = CGRect(x: view.frame.size.width/2 - banner.frame.size.width/2, y: view.frame.size.height - banner.frame.size.height, width: banner.frame.size.width, height: banner.frame.size.height)
+        UIView.commitAnimations()
+        banner.isHidden = false
+    }
+    
+    // AdMob banner available
+    func adViewDidReceiveAd(_ view: GADBannerView) {
+        showBanner(adMobBannerView)
+    }
+    
+    // NO AdMob banner available
+    func adView(_ view: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        hideBanner(adMobBannerView)
     }
 
     /*
