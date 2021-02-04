@@ -28,11 +28,13 @@
 		D7763D4F1F8509DB007AE885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7763D4E1F8509DB007AE885 /* Assets.xcassets */; };
 		D7763D5D1F8509DB007AE885 /* ChordRefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7763D5C1F8509DB007AE885 /* ChordRefTests.swift */; };
 		D7763D681F851CAA007AE885 /* BoutonFavoris.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7763D671F851CAA007AE885 /* BoutonFavoris.swift */; };
+		D784E4F31FE458C500044EA9 /* BoutonSon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D784E4F21FE458C400044EA9 /* BoutonSon.swift */; };
 		D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */; };
 		D78E54C51F85522C004E47F1 /* Accord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C41F85522C004E47F1 /* Accord.swift */; };
 		D78E54C71F85535B004E47F1 /* AccordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */; };
 		D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1A4071FBC8B250091E5E2 /* favorites.swift */; };
 		D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */; };
+		D7F503C81FEC0670001DCF8C /* sons in Resources */ = {isa = PBXBuildFile; fileRef = D7F503C61FEC05DA001DCF8C /* sons */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,11 +73,13 @@
 		D7763D5C1F8509DB007AE885 /* ChordRefTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordRefTests.swift; sourceTree = "<group>"; };
 		D7763D5E1F8509DB007AE885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7763D671F851CAA007AE885 /* BoutonFavoris.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutonFavoris.swift; sourceTree = "<group>"; };
+		D784E4F21FE458C400044EA9 /* BoutonSon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoutonSon.swift; sourceTree = "<group>"; };
 		D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordTableViewCell.swift; sourceTree = "<group>"; };
 		D78E54C41F85522C004E47F1 /* Accord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accord.swift; sourceTree = "<group>"; };
 		D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordTableViewController.swift; sourceTree = "<group>"; };
 		D7A1A4071FBC8B250091E5E2 /* favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favorites.swift; sourceTree = "<group>"; };
 		D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		D7F503C61FEC05DA001DCF8C /* sons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sons; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +162,11 @@
 				D78E54C61F85535B004E47F1 /* AccordTableViewController.swift */,
 				D78E54C21F854FCE004E47F1 /* AccordTableViewCell.swift */,
 				D7763D671F851CAA007AE885 /* BoutonFavoris.swift */,
+				D784E4F21FE458C400044EA9 /* BoutonSon.swift */,
 				D7763D4B1F8509DB007AE885 /* Main.storyboard */,
 				D7C04CEA1FA0DBF800A9C1E5 /* CustomNavigationController.swift */,
 				D7763D4E1F8509DB007AE885 /* Assets.xcassets */,
+				D7F503C61FEC05DA001DCF8C /* sons */,
 				D7086B361FA0F2EF00F4DC9C /* LaunchScreen.storyboard */,
 				D7763D531F8509DB007AE885 /* Info.plist */,
 			);
@@ -259,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F503C81FEC0670001DCF8C /* sons in Resources */,
 				D723646B1FA0E80500DA6A50 /* Mukta-Regular.ttf in Resources */,
 				D723646A1FA0E80100DA6A50 /* Mukta-Bold.ttf in Resources */,
 				D7763D4F1F8509DB007AE885 /* Assets.xcassets in Resources */,
@@ -288,6 +295,7 @@
 				D78E54C51F85522C004E47F1 /* Accord.swift in Sources */,
 				D7A1A4081FBC8B250091E5E2 /* favorites.swift in Sources */,
 				D78E54C31F854FCE004E47F1 /* AccordTableViewCell.swift in Sources */,
+				D784E4F31FE458C500044EA9 /* BoutonSon.swift in Sources */,
 				D7C04CEB1FA0DBF800A9C1E5 /* CustomNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -465,7 +473,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

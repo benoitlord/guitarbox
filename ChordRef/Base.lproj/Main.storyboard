@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ag7-ly-OTN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ag7-ly-OTN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,15 +7,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Mukta-Bold.ttf">
             <string>Mukta-Bold</string>
-        </array>
-        <array key="Mukta-Regular.ttf">
-            <string>Mukta-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -96,85 +94,63 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AccordViewController" customModule="ChordRef" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mdd-PA-Oh4"/>
-                        <viewControllerLayoutGuide type="bottom" id="atv-Ze-dH5"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Xa-cV-81F">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vUn-XK-DW5" userLabel="Stack View">
-                                        <rect key="frame" x="0.0" y="10" width="375" height="403"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pA7-s1-xij">
-                                                <rect key="frame" x="72" y="0.0" width="231" height="37"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom de l'accord : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2in-Dx-BO1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="37"/>
-                                                        <fontDescription key="fontDescription" name="Mukta-Bold" family="Mukta" pointSize="22"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duO-oB-hvH">
-                                                        <rect key="frame" x="168.5" y="0.0" width="62.5" height="37"/>
-                                                        <fontDescription key="fontDescription" name="Mukta-Regular" family="Mukta" pointSize="22"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderAccord" translatesAutoresizingMaskIntoConstraints="NO" id="CYd-Tl-k47">
-                                                <rect key="frame" x="37.5" y="45" width="300" height="300"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="CYd-Tl-k47" secondAttribute="height" multiplier="1:1" id="iD0-IS-ZW9"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKd-bj-iKT" customClass="BoutonFavoris" customModule="ChordRef" customModuleProvider="target">
-                                                <rect key="frame" x="162.5" y="353" width="50" height="50"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="size">
-                                                        <size key="value" width="100" height="100"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OTN-dN-oTe"/>
-                                                    <segue destination="Oce-rx-zmz" kind="show" identifier="Favorites" id="TE0-n2-CPW"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CImage" translatesAutoresizingMaskIntoConstraints="NO" id="CYd-Tl-k47">
+                                <rect key="frame" x="-50" y="-25" width="475" height="844"/>
                                 <constraints>
-                                    <constraint firstItem="vUn-XK-DW5" firstAttribute="leading" secondItem="9Xa-cV-81F" secondAttribute="leading" id="07p-VV-vg8"/>
-                                    <constraint firstItem="vUn-XK-DW5" firstAttribute="top" secondItem="9Xa-cV-81F" secondAttribute="top" constant="10" id="KK8-2t-tVm"/>
-                                    <constraint firstAttribute="trailing" secondItem="vUn-XK-DW5" secondAttribute="trailing" id="NaC-Bp-aAM"/>
-                                    <constraint firstItem="vUn-XK-DW5" firstAttribute="centerX" secondItem="9Xa-cV-81F" secondAttribute="centerX" id="kJb-Bu-Fmn"/>
-                                    <constraint firstAttribute="bottom" secondItem="vUn-XK-DW5" secondAttribute="bottom" constant="10" id="n8O-0h-OpE"/>
+                                    <constraint firstAttribute="width" secondItem="CYd-Tl-k47" secondAttribute="height" multiplier="500:889" id="Hm0-WB-eXr"/>
                                 </constraints>
-                            </scrollView>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKd-bj-iKT" customClass="BoutonFavoris" customModule="ChordRef" customModuleProvider="target">
+                                <rect key="frame" x="10" y="557" width="50" height="50"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="size">
+                                        <size key="value" width="100" height="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OTN-dN-oTe"/>
+                                    <segue destination="Oce-rx-zmz" kind="show" identifier="Favorites" id="TE0-n2-CPW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Em7-mQ-8QO" userLabel="Bouton Son" customClass="BoutonSon" customModule="ChordRef" customModuleProvider="target">
+                                <rect key="frame" x="315" y="557" width="50" height="50"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="size">
+                                        <size key="value" width="100" height="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="playSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FBB-jA-Xe8"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9Xa-cV-81F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Amq-VM-PRI"/>
-                            <constraint firstItem="9Xa-cV-81F" firstAttribute="top" secondItem="mdd-PA-Oh4" secondAttribute="bottom" id="Gil-46-1T3"/>
-                            <constraint firstAttribute="trailing" secondItem="9Xa-cV-81F" secondAttribute="trailing" id="YKf-Xw-k4P"/>
-                            <constraint firstItem="atv-Ze-dH5" firstAttribute="top" secondItem="9Xa-cV-81F" secondAttribute="bottom" id="vne-nE-Au2"/>
+                            <constraint firstItem="CYd-Tl-k47" firstAttribute="leading" secondItem="KyO-JQ-SvT" secondAttribute="leading" constant="-50" id="3Pn-Hc-dtz"/>
+                            <constraint firstItem="CYd-Tl-k47" firstAttribute="leading" secondItem="dKd-bj-iKT" secondAttribute="trailing" constant="-110" id="A1s-LD-gZa"/>
+                            <constraint firstItem="CYd-Tl-k47" firstAttribute="centerX" secondItem="KyO-JQ-SvT" secondAttribute="centerX" id="RsH-yA-b0Z"/>
+                            <constraint firstItem="KyO-JQ-SvT" firstAttribute="bottom" secondItem="dKd-bj-iKT" secondAttribute="bottom" constant="60" id="XyV-2N-gbQ"/>
+                            <constraint firstItem="KyO-JQ-SvT" firstAttribute="trailing" secondItem="CYd-Tl-k47" secondAttribute="trailing" constant="-50" id="fkr-ip-NGn"/>
+                            <constraint firstItem="CYd-Tl-k47" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-25" id="ieb-vh-D3V"/>
+                            <constraint firstItem="KyO-JQ-SvT" firstAttribute="bottom" secondItem="Em7-mQ-8QO" secondAttribute="bottom" constant="60" id="qCL-or-wew"/>
+                            <constraint firstItem="CYd-Tl-k47" firstAttribute="trailing" secondItem="Em7-mQ-8QO" secondAttribute="leading" constant="110" id="xcl-9j-Zyg"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="KyO-JQ-SvT"/>
                     </view>
                     <connections>
                         <outlet property="boutonFavoris" destination="dKd-bj-iKT" id="lNy-Ke-h9S"/>
+                        <outlet property="boutonSon" destination="Em7-mQ-8QO" id="bJA-kx-oAd"/>
                         <outlet property="imageAccord" destination="CYd-Tl-k47" id="uAY-do-AGa"/>
-                        <outlet property="nom" destination="duO-oB-hvH" id="Lck-0Y-l5e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="32"/>
+            <point key="canvasLocation" x="436" y="31.934032983508249"/>
         </scene>
         <!--Custom Navigation Controller-->
         <scene sceneID="5Fu-Fw-x1b">
@@ -205,11 +181,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CImage" width="350" height="624"/>
         <image name="Favoris" width="25" height="25"/>
         <image name="PlaceholderAccord" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wdV-IT-eBH"/>
-        <segue reference="TE0-n2-CPW"/>
+        <segue reference="DA0-FS-EkU"/>
     </inferredMetricsTieBreakers>
 </document>

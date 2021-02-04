@@ -100,6 +100,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         //Permet d'afficher la search bar quand l'application ouvre
         if #available(iOS 11.0, *) {
             self.navigationItem.hidesSearchBarWhenScrolling = false
+            self.navigationItem.largeTitleDisplayMode = .always
         }
     }
     
@@ -148,7 +149,7 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         let accord = filteredAccords[indexPath.row]
         
         cell.nom.text = accord.name
-        cell.imageAccord.image = accord.photo
+        cell.imageAccord.image = accord.thumb
         
         if accord.favoris == true {
             cell.imageFavoris.image = UIImage(named: "Favoris")
@@ -294,148 +295,197 @@ class AccordTableViewController: UITableViewController, UISearchResultsUpdating,
         let b_minImage = UIImage(named: "B_minImage")
         let b_min7Image = UIImage(named: "B_min7Image")
         
-        guard let accordC = Accord(name: "C", photo: cImage!, favoris: false) else {
+        let cThumb = UIImage(named: "CThumb")
+        let c7Thumb = UIImage(named: "C7Thumb")
+        let c_dThumb = UIImage(named: "C-DThumb")
+        let c_d7Thumb = UIImage(named: "C-D7Thumb")
+        let dThumb = UIImage(named: "DThumb")
+        let d7Thumb = UIImage(named: "D7Thumb")
+        let d_eThumb = UIImage(named: "D-EThumb")
+        let d_e7Thumb = UIImage(named: "D-E7Thumb")
+        let eThumb = UIImage(named: "EThumb")
+        let e7Thumb = UIImage(named: "E7Thumb")
+        let fThumb = UIImage(named: "FThumb")
+        let f7Thumb = UIImage(named: "F7Thumb")
+        let f_gThumb = UIImage(named: "F-GThumb")
+        let f_g7Thumb = UIImage(named: "F-G7Thumb")
+        let gThumb = UIImage(named: "GThumb")
+        let g7Thumb = UIImage(named: "G7Thumb")
+        let g_aThumb = UIImage(named: "G-AThumb")
+        let g_a7Thumb = UIImage(named: "G-A7Thumb")
+        let aThumb = UIImage(named: "AThumb")
+        let a7Thumb = UIImage(named: "A7Thumb")
+        let a_bThumb = UIImage(named: "A-BThumb")
+        let a_b7Thumb = UIImage(named: "A-B7Thumb")
+        let bThumb = UIImage(named: "BThumb")
+        let b7Thumb = UIImage(named: "B7Thumb")
+        let c_minThumb = UIImage(named: "C_minThumb")
+        let c_min7Thumb = UIImage(named: "C_min7Thumb")
+        let c_d_minThumb = UIImage(named: "C-D_minThumb")
+        let c_d_min7Thumb = UIImage(named: "C-D_min7Thumb")
+        let d_minThumb = UIImage(named: "D_minThumb")
+        let d_min7Thumb = UIImage(named: "D_min7Thumb")
+        let d_e_minThumb = UIImage(named: "D-E_minThumb")
+        let d_e_min7Thumb = UIImage(named: "D-E_min7Thumb")
+        let e_minThumb = UIImage(named: "E_minThumb")
+        let e_min7Thumb = UIImage(named: "E_min7Thumb")
+        let f_minThumb = UIImage(named: "F_minThumb")
+        let f_min7Thumb = UIImage(named: "F_min7Thumb")
+        let f_g_minThumb = UIImage(named: "F-G_minThumb")
+        let f_g_min7Thumb = UIImage(named: "F-G_min7Thumb")
+        let g_minThumb = UIImage(named: "G_minThumb")
+        let g_min7Thumb = UIImage(named: "G_min7Thumb")
+        let g_a_minThumb = UIImage(named: "G-A_minThumb")
+        let g_a_min7Thumb = UIImage(named: "G-A_min7Thumb")
+        let a_minThumb = UIImage(named: "A_minThumb")
+        let a_min7Thumb = UIImage(named: "A_min7Thumb")
+        let a_b_minThumb = UIImage(named: "A-B_minThumb")
+        let a_b_min7Thumb = UIImage(named: "A-B_min7Thumb")
+        let b_minThumb = UIImage(named: "B_minThumb")
+        let b_min7Thumb = UIImage(named: "B_min7Thumb")
+        
+        guard let accordC = Accord(name: "C", photo: cImage!, thumb: cThumb!, favoris: false, son: "c") else {
             fatalError("Unable to instantiate accordC")
         }
-        guard let accordC7 = Accord(name: "C7", photo: c7Image!, favoris: false) else {
+        guard let accordC7 = Accord(name: "C7", photo: c7Image!, thumb: c7Thumb!, favoris: false, son: "c7") else {
             fatalError("Unable to instantiate accordC7")
         }
-        guard let accordC_D = Accord(name: "C#/Db", photo: c_dImage!, favoris: false) else {
+        guard let accordC_D = Accord(name: "C#/Db", photo: c_dImage!, thumb: c_dThumb!, favoris: false, son: "c-d") else {
             fatalError("Unable to instantiate accordC_D")
         }
-        guard let accordC_D7 = Accord(name: "C#7/Db7", photo: c_d7Image!, favoris: false) else {
+        guard let accordC_D7 = Accord(name: "C#7/Db7", photo: c_d7Image!, thumb: c_d7Thumb!, favoris: false, son: "c-d7") else {
             fatalError("Unable to instantiate accordC_D7")
         }
-        guard let accordD = Accord(name: "D", photo: dImage!, favoris: false) else {
+        guard let accordD = Accord(name: "D", photo: dImage!, thumb: dThumb!, favoris: false, son: "d") else {
             fatalError("Unable to instantiate accordD")
         }
-        guard let accordD7 = Accord(name: "D7", photo: d7Image!, favoris: false) else {
+        guard let accordD7 = Accord(name: "D7", photo: d7Image!, thumb: d7Thumb!, favoris: false, son: "d7") else {
             fatalError("Unable to instantiate accordD7")
         }
-        guard let accordD_E = Accord(name: "D#/Eb", photo: d_eImage!, favoris: false) else {
+        guard let accordD_E = Accord(name: "D#/Eb", photo: d_eImage!, thumb: d_eThumb!, favoris: false, son: "d-e") else {
             fatalError("Unable to instantiate accordD_E")
         }
-        guard let accordD_E7 = Accord(name: "D#7/Eb7", photo: d_e7Image!, favoris: false) else {
+        guard let accordD_E7 = Accord(name: "D#7/Eb7", photo: d_e7Image!, thumb: d_e7Thumb!, favoris: false, son: "d-e7") else {
             fatalError("Unable to instantiate accordD_E7")
         }
-        guard let accordE = Accord(name: "E", photo: eImage!, favoris: false) else {
+        guard let accordE = Accord(name: "E", photo: eImage!, thumb: eThumb!, favoris: false, son: "e") else {
             fatalError("Unable to instantiate accordE")
         }
-        guard let accordE7 = Accord(name: "E7", photo: e7Image!, favoris: false) else {
+        guard let accordE7 = Accord(name: "E7", photo: e7Image!, thumb: e7Thumb!, favoris: false, son: "e7") else {
             fatalError("Unable to instantiate accordE7")
         }
-        guard let accordF = Accord(name: "F", photo: fImage!, favoris: false) else {
+        guard let accordF = Accord(name: "F", photo: fImage!, thumb: fThumb!, favoris: false, son: "f") else {
             fatalError("Unable to instantiate accordF")
         }
-        guard let accordF7 = Accord(name: "F7", photo: f7Image!, favoris: false) else {
+        guard let accordF7 = Accord(name: "F7", photo: f7Image!, thumb: f7Thumb!, favoris: false, son: "f7") else {
             fatalError("Unable to instantiate accordF7")
         }
-        guard let accordF_G = Accord(name: "F#/Gb", photo: f_gImage!, favoris: false) else {
+        guard let accordF_G = Accord(name: "F#/Gb", photo: f_gImage!, thumb: f_gThumb!, favoris: false, son: "f-g") else {
             fatalError("Unable to instantiate accordF_G")
         }
-        guard let accordF_G7 = Accord(name: "F#7/Gb7", photo: f_g7Image!, favoris: false) else {
+        guard let accordF_G7 = Accord(name: "F#7/Gb7", photo: f_g7Image!, thumb: f_g7Thumb!, favoris: false, son: "f-g7") else {
             fatalError("Unable to instantiate accordF_G7")
         }
-        guard let accordG = Accord(name: "G", photo: gImage!, favoris: false) else {
+        guard let accordG = Accord(name: "G", photo: gImage!, thumb: gThumb!, favoris: false, son: "g") else {
             fatalError("Unable to instantiate accordG")
         }
-        guard let accordG7 = Accord(name: "G7", photo: g7Image!, favoris: false) else {
+        guard let accordG7 = Accord(name: "G7", photo: g7Image!, thumb: g7Thumb!, favoris: false, son: "g7") else {
             fatalError("Unable to instantiate accordG7")
         }
-        guard let accordG_A = Accord(name: "G#/Ab", photo: g_aImage!, favoris: false) else {
+        guard let accordG_A = Accord(name: "G#/Ab", photo: g_aImage!, thumb: g_aThumb!, favoris: false, son: "g-a") else {
             fatalError("Unable to instantiate accordG_A")
         }
-        guard let accordG_A7 = Accord(name: "G#7/Ab7", photo: g_a7Image!, favoris: false) else {
+        guard let accordG_A7 = Accord(name: "G#7/Ab7", photo: g_a7Image!, thumb: g_a7Thumb!, favoris: false, son: "g-a7") else {
             fatalError("Unable to instantiate accordG_A7")
         }
-        guard let accordA = Accord(name: "A", photo: aImage!, favoris: false) else {
+        guard let accordA = Accord(name: "A", photo: aImage!, thumb: aThumb!, favoris: false, son: "a") else {
             fatalError("Unable to instantiate accordA")
         }
-        guard let accordA7 = Accord(name: "A7", photo: a7Image!, favoris: false) else {
+        guard let accordA7 = Accord(name: "A7", photo: a7Image!, thumb: a7Thumb!, favoris: false, son: "a7") else {
             fatalError("Unable to instantiate accordA7")
         }
-        guard let accordA_B = Accord(name: "A#/Bb", photo: a_bImage!, favoris: false) else {
+        guard let accordA_B = Accord(name: "A#/Bb", photo: a_bImage!, thumb: a_bThumb!, favoris: false, son: "a-b") else {
             fatalError("Unable to instantiate accordA_B")
         }
-        guard let accordA_B7 = Accord(name: "A#7/Bb7", photo: a_b7Image!, favoris: false) else {
+        guard let accordA_B7 = Accord(name: "A#7/Bb7", photo: a_b7Image!, thumb: a_b7Thumb!, favoris: false, son: "a-b7") else {
             fatalError("Unable to instantiate accordA_B7")
         }
-        guard let accordB = Accord(name: "B", photo: bImage!, favoris: false) else {
+        guard let accordB = Accord(name: "B", photo: bImage!, thumb: bThumb!, favoris: false, son: "b") else {
             fatalError("Unable to instantiate accordB")
         }
-        guard let accordB7 = Accord(name: "B7", photo: b7Image!, favoris: false) else {
+        guard let accordB7 = Accord(name: "B7", photo: b7Image!, thumb: b7Thumb!, favoris: false, son: "b7") else {
             fatalError("Unable to instantiate accordB7")
         }
-        guard let accordC_min = Accord(name: "C min", photo: c_minImage!, favoris: false) else {
+        guard let accordC_min = Accord(name: "C min", photo: c_minImage!, thumb: c_minThumb!, favoris: false, son: "c_min") else {
             fatalError("Unable to instantiate accordC_min")
         }
-        guard let accordC_min7 = Accord(name: "C min7", photo: c_min7Image!, favoris: false) else {
+        guard let accordC_min7 = Accord(name: "C min7", photo: c_min7Image!, thumb: c_min7Thumb!, favoris: false, son: "c_min7") else {
             fatalError("Unable to instantiate accordC_min7")
         }
-        guard let accordC_D_min = Accord(name: "C#/Db min", photo: c_d_minImage!, favoris: false) else {
+        guard let accordC_D_min = Accord(name: "C#/Db min", photo: c_d_minImage!, thumb: c_d_minThumb!, favoris: false, son: "c-d_min") else {
             fatalError("Unable to instantiate accordC_D_min")
         }
-        guard let accordC_D_min7 = Accord(name: "C#/Db min7", photo: c_d_min7Image!, favoris: false) else {
+        guard let accordC_D_min7 = Accord(name: "C#/Db min7", photo: c_d_min7Image!, thumb: c_d_min7Thumb!, favoris: false, son: "c-d_min7") else {
             fatalError("Unable to instantiate accordC_D_min7")
         }
-        guard let accordD_min = Accord(name: "D min", photo: d_minImage!, favoris: false) else {
+        guard let accordD_min = Accord(name: "D min", photo: d_minImage!, thumb: d_minThumb!, favoris: false, son: "d_min") else {
             fatalError("Unable to instantiate accordD_min")
         }
-        guard let accordD_min7 = Accord(name: "D min7", photo: d_min7Image!, favoris: false) else {
+        guard let accordD_min7 = Accord(name: "D min7", photo: d_min7Image!, thumb: d_min7Thumb!, favoris: false, son: "d_min7") else {
             fatalError("Unable to instantiate accordD_min7")
         }
-        guard let accordD_E_min = Accord(name: "D#/Eb min", photo: d_e_minImage!, favoris: false) else {
+        guard let accordD_E_min = Accord(name: "D#/Eb min", photo: d_e_minImage!, thumb: d_e_minThumb!, favoris: false, son: "d-e_min") else {
             fatalError("Unable to instantiate accordD_E_min")
         }
-        guard let accordD_E_min7 = Accord(name: "D#/Eb min7", photo: d_e_min7Image!, favoris: false) else {
+        guard let accordD_E_min7 = Accord(name: "D#/Eb min7", photo: d_e_min7Image!, thumb: d_e_min7Thumb!, favoris: false, son: "d-e_min7") else {
             fatalError("Unable to instantiate accordD_E_min7")
         }
-        guard let accordE_min = Accord(name: "E min", photo: e_minImage!, favoris: false) else {
+        guard let accordE_min = Accord(name: "E min", photo: e_minImage!, thumb: e_minThumb!, favoris: false, son: "e_min") else {
             fatalError("Unable to instantiate accordE_min")
         }
-        guard let accordE_min7 = Accord(name: "E min7", photo: e_min7Image!, favoris: false) else {
+        guard let accordE_min7 = Accord(name: "E min7", photo: e_min7Image!, thumb: e_min7Thumb!, favoris: false, son: "e_min7") else {
             fatalError("Unable to instantiate accordE_min7")
         }
-        guard let accordF_min = Accord(name: "F min", photo: f_minImage!, favoris: false) else {
+        guard let accordF_min = Accord(name: "F min", photo: f_minImage!, thumb: f_minThumb!, favoris: false, son: "f_min") else {
             fatalError("Unable to instantiate accordF_min")
         }
-        guard let accordF_min7 = Accord(name: "F min7", photo: f_min7Image!, favoris: false) else {
+        guard let accordF_min7 = Accord(name: "F min7", photo: f_min7Image!, thumb: f_min7Thumb!, favoris: false, son: "f_min7") else {
             fatalError("Unable to instantiate accordF_min7")
         }
-        guard let accordF_G_min = Accord(name: "F#/Gb min", photo: f_g_minImage!, favoris: false) else {
+        guard let accordF_G_min = Accord(name: "F#/Gb min", photo: f_g_minImage!, thumb: f_g_minThumb!, favoris: false, son: "f-g_min") else {
             fatalError("Unable to instantiate accordF_G_min")
         }
-        guard let accordF_G_min7 = Accord(name: "F#/Gb min7", photo: f_g_min7Image!, favoris: false) else {
+        guard let accordF_G_min7 = Accord(name: "F#/Gb min7", photo: f_g_min7Image!, thumb: f_g_min7Thumb!, favoris: false, son: "f-g_min7") else {
             fatalError("Unable to instantiate accordF_G_min7")
         }
-        guard let accordG_min = Accord(name: "G min", photo: g_minImage!, favoris: false) else {
+        guard let accordG_min = Accord(name: "G min", photo: g_minImage!, thumb: g_minThumb!, favoris: false, son: "g_min") else {
             fatalError("Unable to instantiate accordG_min")
         }
-        guard let accordG_min7 = Accord(name: "G min7", photo: g_min7Image!, favoris: false) else {
+        guard let accordG_min7 = Accord(name: "G min7", photo: g_min7Image!, thumb: g_min7Thumb!, favoris: false, son: "g_min7") else {
             fatalError("Unable to instantiate accordG_min7")
         }
-        guard let accordG_A_min = Accord(name: "G#/Ab min", photo: g_a_minImage!, favoris: false) else {
+        guard let accordG_A_min = Accord(name: "G#/Ab min", photo: g_a_minImage!, thumb: g_a_minThumb!, favoris: false, son: "g-a_min") else {
             fatalError("Unable to instantiate accordG_A_min")
         }
-        guard let accordG_A_min7 = Accord(name: "G#/Ab min7", photo: g_a_min7Image!, favoris: false) else {
+        guard let accordG_A_min7 = Accord(name: "G#/Ab min7", photo: g_a_min7Image!, thumb: g_a_min7Thumb!, favoris: false, son: "g-a_min7") else {
             fatalError("Unable to instantiate accordG_A_min7")
         }
-        guard let accordA_min = Accord(name: "A min", photo: a_minImage!, favoris: false) else {
+        guard let accordA_min = Accord(name: "A min", photo: a_minImage!, thumb: a_minThumb!, favoris: false, son: "a_min") else {
             fatalError("Unable to instantiate accordA_min")
         }
-        guard let accordA_min7 = Accord(name: "A min7", photo: a_min7Image!, favoris: false) else {
+        guard let accordA_min7 = Accord(name: "A min7", photo: a_min7Image!, thumb: a_min7Thumb!, favoris: false, son: "a_min7") else {
             fatalError("Unable to instantiate accordA_min7")
         }
-        guard let accordA_B_min = Accord(name: "A#/Bb min", photo: a_b_minImage!, favoris: false) else {
+        guard let accordA_B_min = Accord(name: "A#/Bb min", photo: a_b_minImage!, thumb: a_b_minThumb!, favoris: false, son: "a-b_min") else {
             fatalError("Unable to instantiate accordA_B_min")
         }
-        guard let accordA_B_min7 = Accord(name: "A#/Bb min7", photo: a_b_min7Image!, favoris: false) else {
+        guard let accordA_B_min7 = Accord(name: "A#/Bb min7", photo: a_b_min7Image!, thumb: a_b_min7Thumb!, favoris: false, son: "a-b_min7") else {
             fatalError("Unable to instantiate accordA_B_min7")
         }
-        guard let accordB_min = Accord(name: "B min", photo: b_minImage!, favoris: false) else {
+        guard let accordB_min = Accord(name: "B min", photo: b_minImage!, thumb: b_minThumb!, favoris: false, son: "b_min") else {
             fatalError("Unable to instantiate accordB_min")
         }
-        guard let accordB_min7 = Accord(name: "B min7", photo: b_min7Image!, favoris: false) else {
+        guard let accordB_min7 = Accord(name: "B min7", photo: b_min7Image!, thumb: b_min7Thumb!, favoris: false, son: "b_min7") else {
             fatalError("Unable to instantiate accordB_min7")
         }
         

@@ -16,17 +16,21 @@ class Accord {
     
     var name: String
     var photo: UIImage
+    var thumb: UIImage
     var favoris: Bool
+    var son: String
     
     //MARK: Initialisation
-    init?(name: String, photo: UIImage, favoris: Bool) {
+    init?(name: String, photo: UIImage, thumb:UIImage, favoris: Bool, son: String) {
         if name.isEmpty {
             return nil
         }
         
         self.name = name
         self.photo = photo
+        self.thumb = thumb
         self.favoris = favoris
+        self.son = son
         
     }
 }

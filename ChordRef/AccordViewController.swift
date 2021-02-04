@@ -9,16 +9,18 @@
 import UIKit
 import GoogleMobileAds
 import AudioToolbox
+import AVFoundation
 
-class AccordViewController: UIViewController, GADBannerViewDelegate {
+class AccordViewController: UIViewController, GADBannerViewDelegate, AVAudioPlayerDelegate {
     
     //MARK: Propriétés
     var bonAccord: Accord?
     var favorite:Bool?
+    var player: AVAudioPlayer?
     
-    @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var imageAccord: UIImageView!
     @IBOutlet weak var boutonFavoris: BoutonFavoris!
+    @IBOutlet weak var boutonSon: BoutonSon!
     
     // Ad banner and interstitial views
     var adMobBannerView = GADBannerView()
@@ -33,11 +35,8 @@ class AccordViewController: UIViewController, GADBannerViewDelegate {
         initAdMobBanner()
         
         // Recevoir les infos de la tableview
-        if let accord = bonAccord {
-            navigationItem.title = accord.name
-            imageAccord.image = accord.photo
-            nom.text = accord.name
-        }
+        navigationItem.title = bonAccord?.name
+        imageAccord.image = bonAccord?.photo
         
         //Sélectionner le bouton des favoris si l'accord est dans les favoris
         if favorite! {
@@ -49,15 +48,17 @@ class AccordViewController: UIViewController, GADBannerViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if #available(iOS 11.0, *) {
+            self.navigationItem.largeTitleDisplayMode = .never
+        }
+    }
+    
     // Pour passer l'info entre les scènes
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
-        //Pour ajouter/retirer l'accord des favoris si on clique sur le bouton
-        let name = nom.text ?? ""
-        let image = imageAccord.image
-        
-        bonAccord = Accord(name: name, photo: image!, favoris: false)
         
         //Modifie les données de l'app en fonction
         if favorite! {
@@ -96,6 +97,36 @@ class AccordViewController: UIViewController, GADBannerViewDelegate {
             sender.isSelected = false
             favorite = false
         }
+    }
+    
+    //MARK: Audio
+    @IBAction func playSound(_ sender: Any) {
+        guard let url = Bundle.main.url(forResource: "sons/\(bonAccord?.son ?? "son")", withExtension: "wav") else { print ("le fichier n'existe pas"); return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            player?.delegate = self
+            
+            /* iOS 10 and earlier require the following line:
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            guard let player = player else { return }
+            
+            let bouton = sender as! BoutonSon
+            bouton.isSelected = true
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        boutonSon.isSelected = false
     }
     
     // MARK: -  ADMOB BANNER
