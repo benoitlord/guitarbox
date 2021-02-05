@@ -567,7 +567,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Assets",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Project/Base.lproj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
@@ -590,7 +590,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Assets",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Project/Base.lproj/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
