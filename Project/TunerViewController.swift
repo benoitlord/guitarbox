@@ -67,9 +67,9 @@ class TunerViewController: UIViewController, GADBannerViewDelegate {
         let silence = AKBooster(tracker, gain: 0)
         
         //Démarre le Microphone Tracker
-        AudioKit.output = silence
+        AKManager.output = silence
         do{
-            try AudioKit.start()
+            try AKManager.start()
         }
         catch{
             print("AudioKit did not start!")

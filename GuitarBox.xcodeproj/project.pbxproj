@@ -298,12 +298,12 @@
 				TargetAttributes = {
 					D7763D431F8509DB007AE885 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
 					D7763D571F8509DB007AE885 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D7763D431F8509DB007AE885;
 					};
@@ -567,12 +567,12 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Assets",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/ChordRef/Base.lproj/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -590,12 +590,12 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Assets",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/ChordRef/Base.lproj/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -607,11 +607,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QR3N73BQD;
-				INFOPLIST_FILE = ChordRefTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRefTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarBox.app/GuitarBox";
 			};
@@ -624,11 +624,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QR3N73BQD;
-				INFOPLIST_FILE = ChordRefTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = benoitlord.ChordRefTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarBox.app/GuitarBox";
 			};

@@ -85,7 +85,7 @@ class AccordViewController: UIViewController, GADBannerViewDelegate, AVAudioPlay
             let defaults = UserDefaults.standard
             var favorites = defaults.array(forKey: defaultsKeys.favorites) as? [String]
             
-            let index = favorites?.index(of: bonAccord!.name)
+            let index = favorites?.firstIndex(of: bonAccord!.name)
             favorites?.remove(at: index!)
             
             defaults.set(favorites, forKey: defaultsKeys.favorites)
