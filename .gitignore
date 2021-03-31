@@ -22,3 +22,6 @@ build/
 
 # Backup files
 *~.nib
+
+GuitarBox.xcodeproj/xcuserdata/*
+GuitarBox.xcodeproj/project.xcworkspace/xcuserdata/*
