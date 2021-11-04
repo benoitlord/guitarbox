@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  GuitarBox
+
+  Created by Benoit Lord on 18-01-26.
+  Copyright © 2018 Benoit Lord. All rights reserved.
+*/
+
+"Privacy - Microphone Usage Description" = "Please authorize access to the microphone to use the tuner";
